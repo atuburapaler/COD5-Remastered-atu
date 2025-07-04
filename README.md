@@ -26,6 +26,8 @@ nazi_zombie_remastered_dlc2 (Shi No Numa)
 nazi_zombie_remastered_dlc3 (Der Riese)
 </p>
 
+Perk icons by [Ronan](https://forum.modme.co/wiki/threads/3206.html).
+
 ## Change Notes
 
 ### General
