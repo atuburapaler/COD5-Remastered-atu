@@ -9,7 +9,7 @@ This mod fixes bugs, improves consistency, adds quality of life tweaks, and make
 
 [Donate](https://paypal.me/alexmintz01)
 
-## Perk icons by [Ronan](https://forum.modme.co/wiki/threads/3206.html).
+### Perk icons by [Ronan](https://forum.modme.co/wiki/threads/3206.html).
 
 ## Build Instructions (For modders)
 * If you are downloading the source code and wish to build my mod, you will need the latest version of the official [Call of Duty: World at War Mod Tools](https://mega.nz/#!5kwyCYYQ!Onn3s3SfJjrombt7b1lUOcFYAtzhg9T_X7c4SvJljbs) installed before continuing. I also recommend installing the community made [V1.1 Launcher patch](https://www.ugx-mods.com/forum/3rd-party-applications-and-tools/48/world-at-war-mod-tools-v1-1-pwned-w-linkerpc-fix/10245/).
