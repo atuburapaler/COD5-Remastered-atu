@@ -7,9 +7,9 @@ LANG_ENGLISH        "Zipline must be activated before use"
 REFERENCE           RANDOM_WEAPON_950
 LANG_ENGLISH        "Hold ^3&&1^7 for Mystery Box [Cost: 950]"
 REFERENCE           WEAPONCOSTAMMO
-LANG_ENGLISH        "Hold ^3&&1^7 for [&&1], Ammo [&&2]"
+LANG_ENGLISH        For [&&1], Ammo [&&2]"
 REFERENCE           WEAPONCOSTAMMO_UPGRADE
-LANG_ENGLISH        "Hold ^3&&1^7 for [&&1], Ammo [&&2],   \n             Upgraded Ammo [4500]"
+LANG_ENGLISH        "For [&&1], Ammo [&&2], Upgraded Ammo [4500]"
 REFERENCE           ROUND
 LANG_ENGLISH        "Round"
 REFERENCE           BUTTON_BUY_CLEAR_DEBRIS_100
