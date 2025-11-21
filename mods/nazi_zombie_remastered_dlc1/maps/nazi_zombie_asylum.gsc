@@ -2737,9 +2737,12 @@ mount_mg_trigger()
 				player.deployTextHud.alignX = "center";
 				player.deployTextHud.alignY = "middle";
 				player.deployTextHud.horzAlign = "center";
-				player.deployTextHud.vertAlign = "bottom";
-				player.deployTextHud.x = 0;
-				player.deployTextHud.y = -316; 
+				player.deployTextHud.vertAlign = "middle";
+
+				player.deployTextHud.x = 0;   // centered
+				player.deployTextHud.y = -75;  // 5 units above the bar
+				//player.deployTextHud.y = -316; 
+
 				player.deployTextHud.fontScale = 1.4;
 				player.deployTextHud setText( &"REMASTERED_ZOMBIE_DEPLOYING" );
 			}
