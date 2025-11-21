@@ -758,7 +758,7 @@ give_model( class )
 					break;
 			}
 
-			solo_white = GetDvarint("cg_SoloScoreColorWhite");
+			solo_white = GetDvarint("cg_soloScoreColorWhite");
 			if(isDefined(solo_white) && solo_white == 1)
 			{
 				self SetClientDvar( "cg_ScoresColor_Gamertag_0" , "1 1 1 1" );
