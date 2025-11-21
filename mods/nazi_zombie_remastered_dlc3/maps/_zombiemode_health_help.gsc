@@ -42,7 +42,7 @@ setup_players_health_hud()
 	healthtext.alignX 		= "center";
 	healthtext.horzAlign 	= "center";
 	healthtext.vertAlign 	= "top";
-	healthtext.y 	= 10;
+	healthtext.y 	= 5;
 	healthtext.foreground 	= true;
 	healthtext.fontScale = 1.35; 
 	healthtext.font = "default";
