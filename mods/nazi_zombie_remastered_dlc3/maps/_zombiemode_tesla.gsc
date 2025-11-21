@@ -232,11 +232,14 @@ tesla_do_damage( source_enemy, arc_num, player, upgraded_status )
 
 	if ( arc_num > 1 )
 	{
-		time = RandomFloat( 0.2, 0.6 ) * arc_num;
 
 		if(upgraded_status)
 		{
-			time /= 1.25;
+			time = RandomFloat( 0.2, 0.5 ) * arc_num; // max random length is about 15% faster
+		}
+		else
+		{
+			time = RandomFloat( 0.2, 0.6 ) * arc_num;
 		}
 
 		wait(time);
