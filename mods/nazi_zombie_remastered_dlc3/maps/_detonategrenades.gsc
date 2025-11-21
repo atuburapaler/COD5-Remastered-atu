@@ -525,12 +525,7 @@ satchelDamage()
 			damaged_zombies += 1;
 		}
 	}
-	
-	if(type == "MOD_EXPLOSIVE" && amount >= 300 && damaged_zombies > 0 ) // the only mod explosive that does 300 or more damage, all others either do less or are grenade splash mod
-	{
-		attacker achievement_notify( "DLC_ZOMBIE_MORTAR" );
-	}
-	
+
 	self detonate( attacker );
 
 	// won't get here; got death notify.
