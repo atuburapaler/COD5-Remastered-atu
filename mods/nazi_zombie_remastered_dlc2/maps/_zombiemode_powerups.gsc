@@ -478,7 +478,15 @@ powerup_drop(drop_point)
 
 	if(flag( "dog_round" )) // forces a dog max ammo, sometimes dogs can be register as outside of the map but because they always spawn inside the map its ok we dont need to check this
 	{
-		valid_drop = true;
+		if(distance( (10350.5, 1590, -730), drop_point) < 209 ) // double check not in the area where dogs can actuall run outside the map
+		{
+			valid_drop = false;
+		}
+		else
+		{
+			valid_drop = true;
+		}
+
 	}
 	
 	if(!valid_drop)
