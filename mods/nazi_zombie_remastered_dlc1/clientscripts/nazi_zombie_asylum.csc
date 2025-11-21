@@ -77,6 +77,7 @@ player_dvar_init()
 	for(i = 0; i < players.size; i++)
 	{
 		players[i] thread dvar_update();
+		players[i] thread pause_check();
 	}
 }
 
@@ -158,6 +159,14 @@ dvar_update() // if we happen to change the dummy setting VARS on the main menu 
 		{
 			SetClientDvar("r_lodBiasRigid", -200);
 		}
+		else if(GetDvarInt("r_lodBiasRigid_settings") == -500 )
+		{
+			SetClientDvar("r_lodBiasRigid", -500);
+		}
+		else if(GetDvarInt("r_lodBiasRigid_settings") == -1000 )
+		{
+			SetClientDvar("r_lodBiasRigid", -1000);
+		}
 
 		if(GetDvarInt("r_lodBiasSkinned_settings") == 0 )
 		{
@@ -166,6 +175,14 @@ dvar_update() // if we happen to change the dummy setting VARS on the main menu 
 		else if(GetDvarInt("r_lodBiasSkinned_settings") == -200 ) 
 		{
 			SetClientDvar("r_lodBiasSkinned", -200);
+		}
+		else if(GetDvarInt("r_lodBiasSkinned_settings") == -500 ) 
+		{
+			SetClientDvar("r_lodBiasSkinned", -500);
+		}
+		else if(GetDvarInt("r_lodBiasSkinned_settings") == -1000 ) 
+		{
+			SetClientDvar("r_lodBiasSkinned", -1000);
 		}
 
 		// FAILSAFES FOR BETTER BOBBING
@@ -199,4 +216,39 @@ dvar_update() // if we happen to change the dummy setting VARS on the main menu 
 		wait(0.05);
 
 	}
+}
+
+pause_check()
+{
+	SetClientDvar("cg_draw2D", 1); // failsafe to clear blur
+
+    defaultState = 1; 
+
+	SetClientDvar("cl_paused_ui", 0);
+
+    while ( true )
+    {
+        currentState = getDvarInt( "cl_paused_ui" ); // 0 until we set it to 1 in menu
+
+        if ( currentState != defaultState )
+        {        	
+			safeArea_ui = GetDvarFloat("safeArea_ui");
+			SetClientDvar("safeArea_horizontal", safeArea_ui);
+			SetClientDvar("safeArea_vertical", safeArea_ui);
+
+			if(safeArea_ui < 1.0)
+			{
+	    	    wait .05; 
+			}
+			
+			hud = GetDvarInt("cg_draw2D_ui");
+			SetClientDvar("cg_draw2D", hud);
+
+			SetClientDvar("cl_paused_ui", 0);
+            defaultState = 0;
+        }
+
+        wait .05; 
+    }
+
 }
