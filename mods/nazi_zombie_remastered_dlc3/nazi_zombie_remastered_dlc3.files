@@ -1,6 +1,8 @@
 animscripts\death.gsc
 animscripts\dog_combat.gsc
 animscripts\traverse\shared.gsc
+animscripts\traverse\wall_hop.gsc
+animscripts\traverse\wall_hop_zombie.gsc
 animscripts\traverse\zombie_jump_down_120.gsc
 animscripts\traverse\zombie_jump_down_127.gsc
 animscripts\traverse\zombie_jump_down_184.gsc
@@ -44,6 +46,7 @@ images\dlc3_zombie_ray_tesla.iwi
 images\dlc3_zombie_two_upgraded.iwi
 images\dlc3_zombie_use_monkey.iwi
 images\gamefonts_pc.iwi
+images\gamefonts2pc.iwi
 images\grenadeicon.iwi
 images\hint_usable.iwi
 images\hud_beaker.iwi
@@ -58,7 +61,6 @@ images\i_jbanana_richtofen_diary_n.iwi
 images\i_richtofen_diary_pencil_c.iwi
 images\i_richtofen_diary_pencil_n.iwi
 images\leaderboard.iwi
-images\line_alt.iwi
 images\line_bio.iwi
 images\makin_door_wood2_c.iwi
 images\makin_door_wood2_n.iwi
@@ -81,6 +83,7 @@ maps\_audio.gsc
 maps\_callbackglobal.gsc
 maps\_challenges_coop.gsc
 maps\_collectibles_game.gsc
+maps\_detonategrenades.gsc
 maps\_friendlyfire.gsc
 maps\_gameskill.gsc
 maps\_hud_achievement.gsc
@@ -122,8 +125,8 @@ maps\nazi_zombie_factory_new_eggs.gsc
 maps\nazi_zombie_factory_teleporter.gsc
 maps\nazi_zombie_sumpf_blockers.gsc
 maps\walking_anim.gsc
-mod.csv
 sound\Stream\Music\Mission\zombie\mx_beauty.wav
+mod.csv
 weapons\sp\falling_hands
 weapons\sp\m1garand_gl_zombie
 weapons\sp\m1garand_gl_zombie_upgraded

@@ -42,6 +42,7 @@ images\dlc1_zombie_song.iwi
 images\dlc1_zombie_teddy.iwi
 images\dlc1_zombie_zap.iwi
 images\gamefonts_pc.iwi
+images\gamefonts2pc.iwi
 images\grenadeicon.iwi
 images\hint_usable.iwi
 images\hud_30_cal_overheat.iwi
@@ -50,7 +51,6 @@ images\hud_fg42_overheat.iwi
 images\hud_m2_flamethrower.iwi
 images\hud_us_grenade.iwi
 images\leaderboard.iwi
-images\line_alt.iwi
 images\line_bio.iwi
 images\makin_door_wood2_c.iwi
 images\makin_door_wood2_n.iwi
@@ -68,6 +68,7 @@ maps\_callbackglobal.gsc
 maps\_challenges_coop.gsc
 maps\_collectibles_game.gsc
 maps\_destructible_opel_blitz.gsc
+maps\_detonategrenades.gsc
 maps\_friendlyfire.gsc
 maps\_gameskill.gsc
 maps\_hud_achievement.gsc
@@ -100,8 +101,8 @@ maps\createfx\nazi_zombie_asylum_fx.gsc
 maps\nazi_zombie_asylum.gsc
 maps\nazi_zombie_asylum_fx.gsc
 maps\walking_anim.gsc
-mod.csv
 sound\Stream\Music\Mission\zombie\mx_lullaby.wav
+mod.csv
 sound\voiceovers\zombie\dlc1\Player0\feedback_ammo_low_00.wav
 sound\voiceovers\zombie\dlc1\Player0\feedback_ammo_low_01.wav
 sound\voiceovers\zombie\dlc1\Player0\feedback_ammo_low_02.wav

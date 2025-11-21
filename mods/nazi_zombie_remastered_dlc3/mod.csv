@@ -179,7 +179,6 @@ material,dlc3_zombie_two_upgraded
 material,dlc3_zombie_use_monkey
 material,dlc3_zombie_ee_factory
 material,dlc_zombie_locked
-material,line_alt
 stringtable,mp/dlc3_achievements.csv
 menufile,ui/hud.menu
 xmodel,collision_wall_64x64x10
@@ -207,6 +206,10 @@ xanim,viewmodel_anim_richtofen_diary_closed_idle
 xanim,viewmodel_anim_richtofen_diary_closed_put_away
 rawfile,mp/playeranim.script
 rawfile,default_controller_unbind.cfg
+rawfile,default_controls_remaster.cfg
+rawfile,default_options_remaster.cfg
+menufile,ui/options_control_defaults.menu
+menufile,ui/options_graphics_defaults.menu
 xmodel,panel_fuse
 xmodel,static_global_electric_wire
 xmodel,static_seelow_toolbox
@@ -230,4 +233,15 @@ menufile,ui/pc_joinchoosegamemode.menu
 menufile,ui/pregame.menu
 menufile,ui/error.menu
 menufile,ui/scriptmenus/menu_clientdvar.menu
-localize,zombie
+localize,platform
+font,customfont/smallFont,,
+font,fonts/normalFont,,
+font,fonts/objectiveFont,,
+font,fonts/boldFont,,
+font,fonts/bigFont,,
+font,fonts/extraBigFont,,
+material,fonts/gamefonts2pc
+menufile,ui/playerlist.inc
+menufile,ui/briefing.menu
+rawfile,bik/bink_front_end_screen_home.bik
+localize,key

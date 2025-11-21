@@ -63,6 +63,7 @@ images\dlc2_zombie_repair_boards.iwi
 images\dlc2_zombie_secret.iwi
 images\dlc2_zombie_survivor.iwi
 images\gamefonts_pc.iwi
+images\gamefonts2pc.iwi
 images\grenadeicon.iwi
 images\hint_usable.iwi
 images\hud_air_raid.iwi
@@ -84,7 +85,6 @@ images\i_richtofen_diary_pencil_n.iwi
 images\jap_katana_c.iwi
 images\katana.iwi
 images\leaderboard.iwi
-images\line_alt.iwi
 images\line_bio.iwi
 images\loadscreen_zombie_sumpf.iwi
 images\makin_door_wood2_c.iwi
@@ -114,6 +114,7 @@ maps\_audio.gsc
 maps\_callbackglobal.gsc
 maps\_challenges_coop.gsc
 maps\_collectibles_game.gsc
+maps\_detonategrenades.gsc
 maps\_friendlyfire.gsc
 maps\_gameskill.gsc
 maps\_hud_achievement.gsc
@@ -156,8 +157,8 @@ maps\nazi_zombie_sumpf_trap_perk_electric.gsc
 maps\nazi_zombie_sumpf_zipline.gsc
 maps\nazi_zombie_sumpf_zone_management.gsc
 maps\walking_anim.gsc
-mod.csv
 sound\Stream\Music\Mission\zombie\mx_the_one.wav
+mod.csv
 weapons\sp\bazooka_zombie
 weapons\sp\falling_hands
 weapons\sp\m1garand_gl_zombie

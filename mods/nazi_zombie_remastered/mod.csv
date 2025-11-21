@@ -131,6 +131,10 @@ xanim,viewmodel_ray_gun_idle_new
 menufile,ui/hud.menu
 rawfile,init_remastered.cfg
 rawfile,default_controller_unbind.cfg
+rawfile,default_controls_remaster.cfg
+rawfile,default_options_remaster.cfg
+menufile,ui/options_control_defaults.menu
+menufile,ui/options_graphics_defaults.menu
 xmodel,viewmodel_usa_double_barrel_2023
 material,char1_bio
 material,char2_bio
@@ -157,7 +161,6 @@ material,dlc_zombie_magicbox
 material,dlc_zombie_laststand
 material,dlc_zombie_radio
 material,dlc_zombie_locked
-material,line_alt
 stringtable,mp/dlc_achievements.csv
 localize,dlc
 sound,achievement_sound,,all_mp
@@ -166,5 +169,17 @@ menufile,ui/pc_joinchoosegamemode.menu
 menufile,ui/pregame.menu
 menufile,ui/error.menu
 menufile,ui/scriptmenus/menu_clientdvar.menu
+menufile,ui/briefing.menu
 localize,zombie
 rawfile,vision/flare.vision
+font,customfont/smallFont,,
+font,fonts/normalFont,,
+font,fonts/objectiveFont,,
+font,fonts/boldFont,,
+font,fonts/bigFont,,
+font,fonts/extraBigFont,,
+material,fonts/gamefonts2pc
+localize,platform
+menufile,ui/playerlist.inc
+rawfile,bik/bink_front_end_screen_home.bik
+localize,key

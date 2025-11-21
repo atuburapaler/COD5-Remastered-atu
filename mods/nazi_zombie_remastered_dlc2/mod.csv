@@ -142,7 +142,6 @@ material,dlc2_zombie_all_perks
 material,dlc2_zombie_ee
 stringtable,mp/dlc2_achievements.csv
 material,dlc_zombie_locked
-material,line_alt
 xanim,ai_zombie_jump_down_190
 xanim,ai_zombie_crawl_jump_down_189
 menufile,ui/briefing.menu
@@ -206,6 +205,10 @@ xanim,ai_zombie_boardtear_crawl_r_5
 xanim,ai_zombie_boardtear_crawl_r_6
 rawfile,init_remastered.cfg
 rawfile,default_controller_unbind.cfg
+rawfile,default_controls_remaster.cfg
+rawfile,default_options_remaster.cfg
+menufile,ui/options_control_defaults.menu
+menufile,ui/options_graphics_defaults.menu
 material,hud_arrow_left
 material,hud_arrow_right
 material,hud_arrow_up
@@ -221,3 +224,14 @@ menufile,ui/pregame.menu
 menufile,ui/error.menu
 menufile,ui/scriptmenus/menu_clientdvar.menu
 localize,zombie
+localize,platform
+font,customfont/smallFont,,
+font,fonts/normalFont,,
+font,fonts/objectiveFont,,
+font,fonts/boldFont,,
+font,fonts/bigFont,,
+font,fonts/extraBigFont,,
+material,fonts/gamefonts2pc
+menufile,ui/playerlist.inc
+rawfile,bik/bink_front_end_screen_home.bik
+localize,key
