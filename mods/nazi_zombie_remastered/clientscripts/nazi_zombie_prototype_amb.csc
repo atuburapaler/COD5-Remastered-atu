@@ -36,12 +36,12 @@ main()
 
 	declareMusicState("SPLASH_SCREEN"); //one shot dont transition until done
 		musicAlias("mx_splash_screen", 12);	
-		musicAliasloop("mx_zombie_wave_1", 0, 4); // add music start here because we dont do the below "round_begin" music state on round 1 
+		musicAliasloop("mx_zombie_wave_1", 0, 2); // add music start here because we dont do the below "round_begin" music state on round 1 
 		musicwaittilldone();
 
 	declareMusicState("round_begin");
 		musicAlias("chalk", 2);
-		musicAliasloop("mx_zombie_wave_1", 0, 4);
+		musicAliasloop("mx_zombie_wave_1", 0, 2);
 		musicwaittilldone();
 
 	declareMusicState ("round_end"); 
@@ -49,7 +49,7 @@ main()
 		musicwaittilldone();
 
 	declareMusicState("WAVE_1"); 
-		musicAliasloop("mx_zombie_wave_1", 0, 4);	
+		musicAliasloop("mx_zombie_wave_1", 0, 2);	
 		musicwaittilldone();
 
 	declareMusicState("eggs"); 
