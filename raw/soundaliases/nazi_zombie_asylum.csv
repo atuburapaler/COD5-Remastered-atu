@@ -3,7 +3,7 @@ name,file,mature,platform,sequence,vol_min,vol_max,dist_min,dist_max,limit_count
 # Footsteps,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # Music,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 MX_intro_stg,Stream/Music/Mission/Ber2/mx_intro_stg.wav,,,,1,1,,,,,,,music,,,,,,,,,,2d,streamed,,,,,,,,,,music_all,,,,,,0,,,,,,100,100,0.25,1,,
-mx_zombie_wave_1,Stream\Music\Mission\zombie\mx_wave_1.wav,,,,0.2,0.2,,,,,,,music,,,0,,,,,,,2d,streamed,,looping,,,,,,,,,,,,,,0,,,,,,100,100,0.25,1,,
+mx_zombie_wave_1,Stream\Music\Mission\zombie\mx_wave_1.wav,,,,0.1,0.1,,,,,,,music,,,0,,,,,,,2d,streamed,,looping,,,,,,,,,,,,,,0,,,,,,100,100,0.25,1,,
 mx_game_over,Stream\Music\Mission\zombie\mx_game_over2.wav,,,,1,1,,,,,,,music,,,0,,,,,,,2d,streamed,,,,,,,,,,music_all,,,,,,0,,,,,,100,100,0.25,1,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #bg_zombie_madness,Stream\Level\zombie\bgs\bg_zombie_madness.wav,,,,0,0,,,1,reject,,,music,,,,,,,,,,2d,streamed,,,,,,,,,,wpn_all,,,,,,0,,,,,,100,100,0.25,1,,
