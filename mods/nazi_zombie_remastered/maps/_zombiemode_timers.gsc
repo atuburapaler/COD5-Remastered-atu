@@ -120,8 +120,8 @@ pauseTimer(hud, time)
 createTimerHUD(game_timer)
 {
 	timer = create_simple_hud();
-	timer.x = -15; 
-	timer.y = 10 + (level.timer_hud_right.size * 16); // as we have more timers it moves down 18 units each time
+	timer.x = -10; 
+	timer.y = 5 + (level.timer_hud_right.size * 16); // as we have more timers it moves down 18 units each time
 	timer.alignX = "right"; 
 	timer.horzAlign = "right";
 	timer.vertAlign = "top"; 
@@ -179,8 +179,8 @@ trapTimerSetup()
 createTrapTimerHUD(trap_index, label)
 {
 	timer = create_simple_hud();
-	timer.x = 15; 
-	timer.y = 10 + ((trap_index) * 16); // as we have more timers it moves down 18 units each time
+	timer.x = 10; 
+	timer.y = 5 + ((trap_index) * 16); // as we have more timers it moves down 18 units each time
 	timer.alignX = "left"; 
 	timer.horzAlign = "left";
 	timer.vertAlign = "top"; 
