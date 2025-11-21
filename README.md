@@ -56,6 +56,7 @@ nazi_zombie_remastered_dlc3 (Der Riese)
 * Added weapon bobbing and crawl bobbing like future Call of Duty titles, weapons no longer just lowers while moving. Toggleable, see custom DVAR section
 * Added footstep sound effect when player lands on the ground after jumping which were originally cut, but are heard in all other Call of Duty titles
 * Fixed player third person model from stretching up to 90 degrees upwards or downwards when looking all the way up or down (which looks very odd), there is now has a set limit as introduced in Black Ops I
+* Added subtle screenshake when near grenade explosions, as seen in Multiplayer and later in Black Ops I campaign
 * Slightly increased footstep volume to make up for loud ambient sounds in zombiemode, especially on Der Riese
 * Player falls into prone when dying like in Black Ops I
 * Player also drops their hands onto the ground when dying as the Game Over screen appears, animation ported from Black Ops II
@@ -75,7 +76,7 @@ nazi_zombie_remastered_dlc3 (Der Riese)
 * Fixed large amounts of damage or unknown damages types causing map restarts, including Peter's hanging body. Note Peter's body will still kill you
 * Fixed all 3+ weapon glitches
 * Points capped at 1 billion to prevent overflow into negative points
-* Hid rank logo next to player names while in game as rank only changes at the end of the game and it is not meant to be a core component, similar to how Black Ops I did not show any rank in game
+* Added setting to hide or show rank logo next to player name while in game, as rank is a non-essential aspect of zombies progression
 * Dead players spectating can chat with alive players now
 
 ### Zombies
@@ -87,6 +88,7 @@ nazi_zombie_remastered_dlc3 (Der Riese)
 * Gibs and helmets shot off of zombies disappear quicker depending on the amount of players to hopefully reduce visual glitches when there are too many vertices on the screen
 * Added missing gore fx when gibbing zombie torsos
 * All German zombies utilize the same set of moving, crawling, and melee animations, as some animations were only added in later DLCs. Note that the first two maps still utilize the old style swiping board animations. Some adjustments have also been made on a per-map basis regarding crawlers, taunting, and meleeing, see map sections below 
+* Zombies now use consistent wallhop animation tiers in all maps (was cut on Der Riese) where zombies climb through barriers faster depending on their movement speed
 * Added cut walk_v9 animation to all German zombie variants that was later used in Black Ops I. Further cut Japaense zombie animations have been added to Shi No Numa, see map section below
 * Zombies must be on the same floor/actually directly behind players to still play their "behind" vocals
 * Zombies can now gib from special scripted explosive damage including Bouncing Betties, Satchels, and Mortars
@@ -104,7 +106,7 @@ nazi_zombie_remastered_dlc3 (Der Riese)
 * Shifted bottom right points scoreboard slightly up and to the left, more visually appealing similar to how it appeared on the console version and Black Ops I
 * Bottom right points color in solo is now dependent on your character (as seen in co-op). Togglable, see custom DVAR section
 * Hintstrings now show yellow highlights for keybinds, similar to Multiplayer and all other Call of Duty titles
-* Removed objective info screen when pressing tab in solo, using T4M or Plutonium will show solo zombie scoreboard instead
+* Removed objective info from pause menu (and pressing tab  in solo, now with T4M or Plutonium there is the proper zombie scoreboard in solo)
 * Updated the World at War font with an upscale to look better on HD displays, fixing the pixelated round counter
 * Updated crosshair texture with custom HD version, still maintaining the correct art style
 * Updated the activation hand logo on hintstrings with a custom HD version, still maintaining the correct art style
@@ -113,6 +115,9 @@ nazi_zombie_remastered_dlc3 (Der Riese)
 * Updated perk and powerup shaders with custom HD versions, still maintaining the correct art style
 * Created new better looking icons for Sticky Grenades and Type 97 frags from scratch, still maintaining the correct art style
 * Changed the Monkey bomb icon to look more recognizable while still maintaining the correct art style
+* Improved scale and spacing of flamethrower icon so it fits better with other HUD elements, which is also closer to the console version HUD
+* Improved spacing of score HUD and weapon info HUD to be closer to the console version HUD
+* Blood texture behind points is no longer overly stretched (horizontally), which was only on the PC version
 * Removed grenade indicators from special grenades because these grenades cannot be picked up and display the incorrect icon
 * Improved spacing between hintstrings and the activation hand logo
 * Capitalization is more consistent in hintstrings
@@ -122,6 +127,7 @@ nazi_zombie_remastered_dlc3 (Der Riese)
 * Triggers perform actions in sync across all maps instead of having slight differences depending on map and type (when to subtract points, when to disappear, when to give item)
 * Upon respawn, player grenade inventory (while empty) is still shown on HUD before player recieves new round grenade reward
 * All HUD elements disappear when the player dies for a cleaner game over screen
+* All HUD elements disappear while in pause menus for options
 * Weapon tutorial hint texts are slightly smaller so they are easier to read, used for Bouncing Betties and Satchel Charges
 
 ### Menu
@@ -137,7 +143,7 @@ nazi_zombie_remastered_dlc3 (Der Riese)
 * Hid Multiplayer style progress summary report pop-up when player ends game or disconnects as this data is not relevant
 
 ### Gamepad
-* Controller Mode setting switches hints to use gamepad icons for hintstrings and the D-pad so that players can enjoy a more immersive controller experience. Uses Xbox 360 style icons by default, but optional patch is available to change to PlayStation 3 style icons
+* Controller Mode setting switches hints to use gamepad icons for hintstrings and the D-pad so that players can enjoy a more immersive controller experience. Uses Xbox 360 style icons by default, but optional patch is available to change to PlayStation 3 style icons. NOTE: If gamepad hints are not showing up, this is because you have your interact key bound to something other than F and the game gets confused, simply unbind your interact key to fix 
 * Loading screens no longer show the mouse cursor and "click to start" hints while Controller Mode is enabled
 * New custom scripted aim assist settings (lock on when aiming near enemy), togglable only while Controller Mode is enabled
 * Menu settings for sensitivity and flipping triggers, note that any buttons can be rebound by pressing them in the appropriate setting
@@ -148,7 +154,7 @@ nazi_zombie_remastered_dlc3 (Der Riese)
 * Anti-aliasing now goes up to 8x instead of just 4x
 * Max anisotropy texture filtering setting added to the menu and can now be set to 16. Now, the slider lets you properly set your min value from 0-16 instead of the values 5-16 not doing anything because the max being set to 4 would override it
 * All settings and stats are saved to the selected profile even if the game is closed, crashes, switches profiles, etc.
-* Leaderboard high round records do not save if player has set Gametype or Difficulty to "Classic," as this makes the mod substantially easier and are considered cheats. Note that rank and miscellaneous player statistics such as kills and playtime will still save when using these custom settings 
+* Leaderboard high round records do not save if player has set Gametype (24 zombie limit) or Enemy Intensity (no extra super sprinters) to "Classic," as this makes the mod substantially easier and are considered cheats. Note that rank and miscellaneous player statistics such as kills and playtime will still save when using these custom settings 
 * Note that some "fake" DVARs were created for bypassing cheat protected settings, labeled the same as the regular DVAR but with "_settings" to allow the player to edit them on the menu and have it carry over in-game
 
 | New Settings | DVAR | Default | Other Values | Description |
@@ -156,10 +162,12 @@ nazi_zombie_remastered_dlc3 (Der Riese)
 | **GRAPHICS** |  |  |  |  |
 | Fog | `r_fog_settings` | `1` Yes | `0` No | Enables or disables fog. |
 | Cinematic Mode | `r_filmUseTweaks_settings` | `0` No | `1` Yes | More saturated color grading. |
+| Gamma Correction | `r_gamma_x360` | `0` Default | `1` Classic | Replicates gamma curve of Xbox 360 version (requires T4M-Enhanced). |
+| Safe Area | `safeArea_ui` | `1` Default | `0.85` Minimum | Slider that adjusts the safeArea_horizontal and safeArea_vertical border sizes (requires T4M-Enhanced). |
 | **TEXTURE SETTINGS** |  |  |  |  |
 | Max Anisotropy | `r_textFilterAnisoMax` | `4` Low | `16` Normal | Increases max possible texture filtering quality. |
-| LOD Range (Rigid) | `r_lodBiasRigid_settings` | `0` Default | `-200` High | Increases range of visible detail on rigid models. |
-| LOD Range (Skinned) | `r_lodBiasSkinned_settings` | `0` Default | `-200` High | Increases range of visible detail on skinned models. |
+| LOD Range (Rigid) | `r_lodBiasRigid_settings` | `0` Default | `-200` Medium, `-500` High | Increases range of visible detail on rigid models. |
+| LOD Range (Skinned) | `r_lodBiasSkinned_settings` | `0` Default | `-200` Medium, `-500` High | Increases range of visible detail on skinned models. |
 | **SOUND** |  |  |  |  |
 | Character Dialogue | `character_dialog` | `0` Yes | `1` No | Enable or disables character dialogue. Locked in-game in co-op as dialogue is not clientside. |
 | **GAME OPTIONS** |  |  |  |  |
@@ -172,11 +180,12 @@ nazi_zombie_remastered_dlc3 (Der Riese)
 | Limit FPS | `com_maxfps` | `85` Default | `0` Disabled | Adjusts the max FPS value. |
 | Field of View | `cg_fov` | `65` Default | `90` Maximum | Adjustable FOV with slider. |
 | View Scale | `cg_fovScale` | `1` Normal | `1.1` Medium or `1.2` High | Scales existing FOV higher or lower by multiplier, which also effects ADS FOV. |
-| Controller Mode | `cg_drawDpadHUD` | `0` Disabled | `1` Enabled | DVAR switches HUD to use console style D-pad icons. Menu button also executes additional controller bind commands. |
+| Controller Mode | `cg_drawGamepadHUD` | `0` Disabled | `1` Enabled | DVAR switches HUD to use console style HUD and font. Menu button also executes controller bind commands. |
 | **CONTROLS** |  |  |  |  |
 | Controller Triggers | `gpad_flip_triggers` | `0` Default | `1` Flipped | Flips triggers to top row, useful for PlayStation 3 controller players. |
 | Controller Inversion | `input_invertpitch` | `0` Disabled | `1` Enabled | Enables or disables controller inversion. |
 | Controller Sensitivity | `input_viewSensitivity` | `0.6` 1 (Low) | Scales up to (Medium), (High), (Very High), (Insane) | Increases or decreases controller sensitivity using the same scale as console. |
+| Use/Reload | `+usereload` | `Unbound` Default | n/a | Added use/reload keybind to menu so controller players can now change all gamepad buttons. |
 | **CONSOLE COMMANDS** |  |  |  |  |
 | DVAR Initialization | `dvar_init` | `0` | `1` | Set to 0 in console to reset all new remastered settings back to default, requires mod relaunch. |
 | Zombiemode Developer | `zombiemode_dev` | `0` | `1` | Developer command to enable experimental features of the mod, requires map restart. |
@@ -185,8 +194,9 @@ nazi_zombie_remastered_dlc3 (Der Riese)
 | Health Counter | `cg_drawHealthCountCoop` | `0` | `1` | Developer command to enable health counter in co-op games, requires map restart. |
 | Game Timers | `cg_drawTimers` | `0` | `1` | Developer command to enable game and round timers for all players, requires map restart. |
 | Trap Timers | `cg_drawTrapTimers` | `0` | `1` | Developer command to enable trap cooldown timers for all players, requires map restart. |
-| Solo Score Color | `cg_SoloScoreColorWhite` | `0` | `1` | Forces white points color in solo, requires map restart. |
+| Solo Score Color | `cg_soloScoreColorWhite` | `0` | `1` | Forces white points color in solo, requires map restart. |
 | Lower Gun | `cg_lowerGun` | `0` | `1` | Removes custom weapon bobbing so weapon just lowers only in solo, requires map restart. |
+| Ammo Text | `cg_drawAmmoText` | `0` | `1` | Enables or disables ammo shown as text instead of bullet graphics, as seen in splitscreen on console. |
 | D-pad Logos | `cg_drawDpadLogos` | `1` | `0` | Disable or enable background D-pad logos when using controller if you just want neutral arrows. |
 | Clearance Code | `bio_access` | `[PASSWORD]` | `?` | Grants access to confidential menus. |
 | Sumpf Completion | `sumpf_quest` | `0` | `?` | Indicates completion of new Shi No Numa Easter Egg achievement with Richtofen in lobby. |
@@ -385,6 +395,8 @@ nazi_zombie_remastered_dlc3 (Der Riese)
 * Hellhound functionality includes some improvements  made in the next DLC including a health buff and fixes to running while invisible before finishing spawning in
 * Health scaling is kept slightly lower than Der Riese to account for no Pack-a-Punch
 * Fixed hellhounds playing normal zombie death sounds in electric traps
+* Fixed hellhounds from clipping into a bed/debris after jumping through the window near Dr.'s Quarters side of the main hut
+* Added new check to prevent hellhounds from dropping powerup when outside the map running through the path to the window near the Dr.'s Quarters side of the main hut
 * Carpenter voiceover uses cut repurposed lines that were originally made for general barrier repairing
 * When picking up a powerup, character voiceover chooses from three lines instead of one
 * When opening the second or third hut, there is a 50% chance of the closest player having voiceover on the randomization of perks
@@ -702,7 +714,7 @@ nazi_zombie_remastered_dlc3 (Der Riese)
 #### Wunderwaffe DG-2
 * Does not permanently reduce max health upon zapping yourself
 * Fixed missing reload clip on Der Riese for both upgraded/un-upgraded versions
-* (Upgraded) Time between arcs is 20% shorter, improving the effectiveness of the weapon upon upgrade
+* (Upgraded) The max random length of time between arcs is about 15% faster, improving the effectiveness of the weapon upon upgrade
 * (Upgraded) Max zombies per chain increases from 10 to 12, improving the effectiveness of the weapon upon upgrade
 * (Upgraded) Added missing 3rd person weapon model that has the silver etching material
 * (Upgraded) Fixed not playing idle electric humming sound while holding weapon
