@@ -431,9 +431,29 @@ dog_wall_and_window_hop( traverseName, height )
 	self clearanim(%root, 0.2);
 	self setflaggedanimrestart( "dog_traverse", anim.dogAnims[self.animSet].traverse[ traverseName ], 1, 0.2, 1);
 	
+	if(anim.dogAnims[self.animSet].traverse[ traverseName ] == %zombie_dog_run_jump_40)
+	{
+		self thread clear_anim(%zombie_dog_run_jump_40);
+	}
+
 	self animscripts\shared::DoNoteTracks( "dog_traverse" );
 	
 	self.traverseComplete = true;
+}
+
+clear_anim()
+{
+	self endon("killanimscript");
+
+	wait( randomFloatRange(0.72, 0.75) );
+
+	if(self.traverseComplete != true)
+	{
+		self clearanim(%zombie_dog_run_jump_40, 0.2);	// start run immediately
+		self traverseMode("gravity");
+		self notify("dog_traverse");
+		self.traverseComplete = true;
+	}
 }
 
 
