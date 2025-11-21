@@ -50,6 +50,7 @@ init_blockers()
 
 	if(getDvarInt( "zombiemode_dev") == 1 )
 	{
+		level.cheats_defined = true;
 		level.closeable_door = true;
 	}
 	else

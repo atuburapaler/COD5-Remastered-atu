@@ -1011,10 +1011,10 @@ onPlayerConnect_clientDvars()
 		"player_aimblend_back_low", "0 0.3 0.5", // 3rd person look up/down
 		"cg_hudDamageIconTime", "2500" ); // fixed damage marks from disappearing too quick
 
-	self SetClientDvars(
+/*	self SetClientDvars(
 		"cg_overheadIconsize", "0",
         "cg_overheadRanksize", "0"); 
-
+*/
 	if( getDvar( "classic_perks" ) == "" || getDvar("classic_perks") == "0" ) // if dvar doesn't exist or is disabled, we stay default
 	{
 		self setclientdvar("player_lastStandBleedoutTime", 45);
@@ -1049,10 +1049,10 @@ onPlayerSpawned()
 			self SetClientDvar( "cg_ScoresColor_Gamertag_2" , GetDvar( "cg_ScoresColor_Gamertag_2") );
 			self SetClientDvar( "cg_ScoresColor_Gamertag_3" , GetDvar( "cg_ScoresColor_Gamertag_3") );
 		}
-		self SetClientDvars(
+/*		self SetClientDvars(
 				"cg_overheadIconsize", "0",
 		        "cg_overheadRanksize", "0"); 
-			
+			*/
 		self.can_solo_revive = false;
 
 		self SetClientDvars( "cg_thirdPerson", "0",
@@ -1568,6 +1568,7 @@ round_spawning()
 	if( player_num == 1 && getDvarInt( "classic_zombies") == 1 )
 	{
 		max += 0;
+		level.cheats_defined = true;
 	}
 	else if( player_num == 1 )
 	{
@@ -2758,12 +2759,12 @@ end_game()
 	survived FadeOverTime( 1 );
 	survived.alpha = 1;
 
-	destroy_chalk_hud();
-
 	wait( 1 );
 	//play_sound_at_pos( "end_of_game", ( 0, 0, 0 ) );
 	wait( 2 );
 	level.player_is_speaking = 1;
+
+	destroy_chalk_hud();
 
 	players = get_players();
 	for (i = 0; i < players.size; i++)
@@ -3108,7 +3109,7 @@ store_crumb( origin )
 //CODER MOD: TOMMY K
 nazizombies_upload_highscore()
 {
-	if( getDvarInt( "classic_zombies") == 1 || getDvarInt( "super_sprinters") == 1 || getDvarInt( "zombiemode_dev") == 1 ) // if playing with 24 limit or with super sprinters disabled, these are considered cheats because they make the game easier. classic perks or grabby zombies is OK, these make the game harder
+	if( getDvarInt( "classic_zombies") == 1 || getDvarInt( "super_sprinters") == 1 || getDvarInt( "zombiemode_dev") == 1 || (isDefined(level.cheats_defined) && level.cheats_defined == true) ) // if playing with 24 limit or with super sprinters disabled, these are considered cheats because they make the game easier. classic perks or grabby zombies is OK, these make the game harder
 	{
 		//iPrintLn("Highscores not saved, current Game Options configuration not allowed");
 		return;
