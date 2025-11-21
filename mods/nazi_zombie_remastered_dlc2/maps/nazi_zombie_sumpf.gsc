@@ -2922,7 +2922,7 @@ meteor_trigger()
 
 	}
 
-	dmgtrig delete();
+	//dmgtrig delete();
 
 	
 }
@@ -2995,6 +2995,8 @@ kill_shock_trigger()
 		zombies[i] dodamage( zombies[i].health + 666, zombies[i].origin );
 		playsoundatposition( "elec_vocals", zombies[i].origin );
 	}
+
+	large_meteor delete();
 
 }
 
