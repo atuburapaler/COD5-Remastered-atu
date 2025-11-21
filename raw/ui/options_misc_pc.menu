@@ -2,7 +2,7 @@
 #include "ui_mp/common_macro.inc"
 
 #define OPTIONS_STYLE			1
-#define CHOICE_SEP_1			23
+#define CHOICE_SEP_1			24
 
 #include "ui_mp/menustyle.inc"
 #include "ui/choices_setup_common.menu"
@@ -60,6 +60,9 @@
 		}
 		onESC 
 		{ 
+			execOnDvarIntValue cl_ingame 1 "setfromdvar safeArea_vertical safeArea_ui";
+			execOnDvarIntValue cl_ingame 1 "setfromdvar safeArea_horizontal safeArea_ui";
+			//exec "setfromdvar cg_draw2D cg_draw2D_ui"; // reset
 			close self;		
 		}
 
@@ -72,16 +75,18 @@
 		CHOICE_SECTION_TITLE( 21, "@MENU_INTERACT_CAP" )
 
 		CHOICE_BIND( 22, "@MENU_USE", "+activate", ; )
+		CHOICE_BIND( 23, "@REMASTERED_USERELOAD", "+usereload", ; )
+
 	#ifdef PC
-		CHOICE_BIND( 23, "@REMASTERED_ITEM", "+actionslot 1", ; )
+		CHOICE_BIND( 24, "@REMASTERED_ITEM", "+actionslot 1", ; )
 	#else
-		CHOICE_BIND( 23, "@MENU_ACTIONSLOT1", "+actionslot 1", ; )
+		CHOICE_BIND( 24, "@MENU_ACTIONSLOT1", "+actionslot 1", ; )
 	#endif
 		
 		CHOICE_SEPARATOR( CHOICE_SEP_1 )
-		CHOICE_BIND_VIS_FOCUS( 24, "@MENU_SCREENSHOT", "screenshotjpeg", ;, 1, 1, setLocalVarBool hint_screenshot 1, CLEAR_HINTS )
-		CHOICE_BIND( 25, "@REMASTERED_SCOREBOARD", "+scores", ; )
-		CHOICE_BIND( 26, "@MENU_ACCEPT_INVITE", "acceptInvitation", ; )
+		CHOICE_BIND_VIS_FOCUS( 25, "@MENU_SCREENSHOT", "screenshotjpeg", ;, 1, 1, setLocalVarBool hint_screenshot 1, CLEAR_HINTS )
+		CHOICE_BIND( 26, "@REMASTERED_SCOREBOARD", "+scores", ; )
+		CHOICE_BIND( 27, "@MENU_ACCEPT_INVITE", "acceptInvitation", ; )
 	//	CHOICE_BIND_VIS( 27, "@MENU_QUICK_SAVE", "savegame_lastcommit", ;, when( !dvarbool( ui_multiplayer ) ),!dvarbool( ui_multiplayer ) )
 
 		//CHOICE_BACK( "@MENU_BACK", close self )

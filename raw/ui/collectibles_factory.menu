@@ -160,9 +160,9 @@
 		// Description
 		PREPROC_TEXT_DRAW_ALIGNED( LOCAL_X_TEXT_OFFSET_NEW (LOCAL_Y_INFO_OFFSET_NEW-15) 200 14 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_TOP, ORIGIN_DESCRIPTION, exp text( "@REMASTERED_DESC" ), TEXTSIZE_DEFAULT, 0, 0, ITEM_ALIGN_LEFT, COLOR_FOCUSED )	
 		// Description text
-		PREPROC_TEXT_DRAW_ALIGNED_VIS( LOCAL_X_TEXT_OFFSET_NEW LOCAL_Y_INFO_OFFSET_NEW 300 100 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_TOP, ORIGIN_DESCRIPTION, "@REMASTERED_"+dvarString( ui_selected_collectible )+"_DESC", TEXTSIZE_SMALL, 0, 0, ITEM_ALIGN_LEFT, COLOR_DESC_TEXT, when( !dvarbool( ui_collectible_islocked ) ) )
+		PREPROC_TEXT_DRAW_ALIGNED_VIS( LOCAL_X_TEXT_OFFSET_NEW LOCAL_Y_INFO_OFFSET_NEW 250 100 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_TOP, ORIGIN_DESCRIPTION, "@REMASTERED_"+dvarString( ui_selected_collectible )+"_DESC", TEXTSIZE_SMALL, 0, 0, ITEM_ALIGN_LEFT, COLOR_DESC_TEXT, when( !dvarbool( ui_collectible_islocked ) ) )
 
-		PREPROC_TEXT_DRAW_ALIGNED_VIS( LOCAL_X_TEXT_OFFSET_NEW LOCAL_Y_INFO_OFFSET_NEW 300 100 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_TOP, ORIGIN_DESCRIPTION, "@REMASTERED_"+dvarString( ui_selected_collectible )+"_DESC", TEXTSIZE_SMALL, 0, 0, ITEM_ALIGN_LEFT, COLOR_LOCKED_DESC_TEXT, when( dvarbool( ui_collectible_islocked ) ) )
+		PREPROC_TEXT_DRAW_ALIGNED_VIS( LOCAL_X_TEXT_OFFSET_NEW LOCAL_Y_INFO_OFFSET_NEW 250 100 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_TOP, ORIGIN_DESCRIPTION, "@REMASTERED_"+dvarString( ui_selected_collectible )+"_DESC", TEXTSIZE_SMALL, 0, 0, ITEM_ALIGN_LEFT, COLOR_LOCKED_DESC_TEXT, when( dvarbool( ui_collectible_islocked ) ) )
 	
 		itemDef 
 		{
@@ -198,13 +198,13 @@
 		}
 		itemDef 
 		{
-		       name                 line_bio
-		       rect                    FULLSCREEN
+		       name                 line_alt
+			   rect        -675 0 640 480 3 VERTICAL_ALIGN_FULLSCREEN			
 		       forecolor            1 1 1 1
 		       style                 WINDOW_STYLE_SHADER
-		       background      "line_alt" 
+		       background      "line_bio" 
 		       decoration
-			   visible			when( dvarstring("r_mode") == "1280x720" || dvarstring("r_mode") == "1600x900" || dvarstring("r_mode") == "1920x1080" || dvarstring("r_mode") == "2560x1440" || dvarstring("r_mode") == "3840x2160" ) // Line only shows up on proper HD widescreen resolutions
+			   visible when( dvarstring("r_mode") == "720x480" || dvarstring("r_mode") == "1128x634" || dvarstring("r_mode") == "1366x768" || dvarstring("r_mode") == "1440x900" || dvarstring("r_mode") == "1280x720" || dvarstring("r_mode") == "1600x900" || dvarstring("r_mode") == "1920x1080" || dvarstring("r_mode") == "2560x1440" || dvarstring("r_mode") == "3840x2160" || dvarstring("r_mode") == "1680x1050"  || dvarstring("r_mode") == "1760x990" || dvarstring("r_mode") == "3440x1440" ) // Line only shows up on proper HD widescreen resolutions
 
 		}
 		itemDef 

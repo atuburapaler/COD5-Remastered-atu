@@ -105,6 +105,9 @@ rect			0 0 640 480	HORIZONTAL_ALIGN_FULLSCREEN
 			action 
 			{
 				play "mouse_click";
+				exec "setfromdvar safeArea_vertical safeArea_ui";	
+				exec "setfromdvar safeArea_horizontal safeArea_ui";	
+				//exec "setfromdvar cg_draw2D cg_draw2D_ui"; // reshow hud
 				close self;
 				BACK_OPEN
 			}

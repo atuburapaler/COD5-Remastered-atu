@@ -30,14 +30,23 @@
 
 		onOpen
 		{
-			execondvarintvalue cg_drawDpadHUD 1 "set cl_bypassMouseInput 1"; 
+			execondvarintvalue cg_drawGamepadHUD 1 "set cl_bypassMouseInput 1"; 
+			execondvarintvalue cg_drawGamepadHUD 1 "set cg_scoreboardFont 3"; 
+			execondvarintvalue cg_drawGamepadHUD 0 "set cg_scoreboardFont 0"; 
+
 			setdvar ui_SaveLoadVisible "0";
 			setfocus press_to_skip;
 		}
 
 		onClose
 		{
-			exec "set cl_bypassMouseInput 0"
+			execondvarintvalue cg_drawGamepadHUD 1 "set cg_scoreboardTextOffset 0.64"; 
+			execondvarintvalue cg_drawGamepadHUD 0 "set cg_scoreboardTextOffset 0.6"; 
+			
+			exec "set cl_bypassMouseInput 0";
+			exec "setfromdvar safeArea_horizontal safeArea_ui";
+			exec "setfromdvar safeArea_vertical safeArea_ui";
+			exec "setfromdvar cg_draw2D cg_draw2D_ui"; // reset
 		}
 
 		itemDef 
@@ -157,7 +166,7 @@
 			textaligny		4
 			forecolor		1 1 1 0.5
 			backcolor		0 0 0 0
-			visible when ( !dvarbool( ui_isSaving ) && dvarstring( credits ) != "1" && VIS_PRESS_START && dvarInt( "cg_drawDpadHUD" ) != 1 );
+			visible when ( !dvarbool( ui_isSaving ) && dvarstring( credits ) != "1" && VIS_PRESS_START && dvarInt( "cg_drawGamepadHUD" ) != 1 );
 			decoration
 		}
 		itemDef
@@ -174,7 +183,7 @@
 			textaligny		4
 			forecolor		1 1 1 0.5
 			backcolor		0 0 0 0
-			visible when ( !dvarbool( ui_isSaving ) && dvarstring( mapname ) == "credits" && VIS_PRESS_START && dvarInt( "cg_drawDpadHUD" ) != 1 );
+			visible when ( !dvarbool( ui_isSaving ) && dvarstring( mapname ) == "credits" && VIS_PRESS_START && dvarInt( "cg_drawGamepadHUD" ) != 1 );
 			decoration
 		}
 #endif // #ifdef PC

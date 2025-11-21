@@ -43,6 +43,9 @@
 		}
 		onESC
 		{
+			execOnDvarIntValue cl_ingame 1 "setfromdvar safeArea_vertical safeArea_ui";
+			execOnDvarIntValue cl_ingame 1 "setfromdvar safeArea_horizontal safeArea_ui";
+			//exec "setfromdvar cg_draw2D cg_draw2D_ui"; // reset
 			close self;
 		}
 		

@@ -20,6 +20,13 @@
 		focusColor		COLOR_FOCUSED
 		backcolor		0 0 0 0
 		visible			1
+
+		onOpen // need to make sure this works, this is for if we load in with safe area in co-op
+		{
+			exec "setfromdvar safeArea_horizontal safeArea_ui";
+			exec "setfromdvar safeArea_vertical safeArea_ui";
+			exec "setfromdvar cg_draw2D cg_draw2D_ui"; // reset
+		}
 #ifdef NOT_DEVELOPMENT
 		onEsc{ }
 #else
@@ -81,10 +88,24 @@
 			textstyle		ITEM_TEXTSTYLE_SHADOWED
 			textscale		0.38
 			textalign		ITEM_ALIGN_TOP_CENTER
-			visible			1
+			visible			when(dvarInt( "cg_drawGamepadHUD" ) != 1)
 			decoration
 			autowrapped
 		}		
+
+		itemDef
+		{
+			type			ITEM_TYPE_TEXT
+			rect			-225 342 450 0 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
+			textcinematicsubtitle
+			textfont		UI_FONT_SMALL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		0.38
+			textalign		ITEM_ALIGN_TOP_CENTER
+			visible			when(dvarInt( "cg_drawGamepadHUD" ) == 1)
+			decoration
+			autowrapped
+		}	
 
 		itemDef 
 		{
@@ -107,7 +128,21 @@
 			textscale		0.30
 			textalign		ITEM_ALIGN_TOP_CENTER
 			ownerdraw		UI_LOAD_STATUS_SCREEN
-			visible			when( dvarbool( onlinegame ) || dvarbool( systemlink )  )
+			visible			when(dvarInt( "cg_drawGamepadHUD" ) != 1 && ( dvarbool( onlinegame ) || dvarbool( systemlink ) ) )
+			decoration
+		}
+		itemDef 
+		{
+			name			"load_status_screen_console"
+			rect			-270 300 260 15 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			backcolor		0.08627 0.1098 0.1098 1
+			align			HUD_HORIZONTAL
+			textfont		UI_FONT_SMALL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		0.30
+			textalign		ITEM_ALIGN_TOP_CENTER
+			ownerdraw		UI_LOAD_STATUS_SCREEN
+			visible			when(dvarInt( "cg_drawGamepadHUD" ) == 1 && ( dvarbool( onlinegame ) || dvarbool( systemlink ) ) )
 			decoration
 		}
 
