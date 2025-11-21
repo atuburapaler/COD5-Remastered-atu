@@ -224,9 +224,14 @@ set_zombie_run_cycle()
 	case "sprint":                 
 		var = randomintrange(1, 16); // For rest of the game
 
-		if(level.round_number < 11 || getDvarInt( "super_sprinters") == 1 ) // For early game to prevent random extra-super sprinters
+		if(level.round_number < 11 ) // For early game to prevent random super sprinters
 		{
-			var = randomintrange(1, 10);	
+			var = randomintrange(1, 3);	
+		}
+		else if ( getDvarInt( "super_sprinters") == 1 )
+		{
+			var = randomintrange(1, 3);	
+			level.cheats_defined = true;
 		}
 		
 		self set_run_anim( "sprint" + var );                       
