@@ -657,11 +657,15 @@ special_drop_setup()
 	case "dog":
 		if ( level.round_number >= 15 )
 		{
-			is_powerup = false;
-			dog_spawners = GetEntArray( "special_dog_spawner", "targetname" );
-			maps\_zombiemode_dogs::special_dog_spawn( dog_spawners, 1, undefined );
-			//iprintlnbold( "Samantha Sez: No Powerup For You!" );
-			thread play_sound_2d( "sam_nospawn" );
+			//Only spawn a dog punishment if mixed dog rounds are enabled
+			if ( IsDefined( level.mixed_rounds_enabled ) && level.mixed_rounds_enabled == 1 )
+			{
+				is_powerup = false;
+				dog_spawners = GetEntArray( "special_dog_spawner", "targetname" );
+				maps\_zombiemode_dogs::special_dog_spawn( dog_spawners, 1, undefined );
+				//iprintlnbold( "Samantha Sez: No Powerup For You!" );
+				thread play_sound_2d( "sam_nospawn" );
+			}
 		}
 		else
 		{
