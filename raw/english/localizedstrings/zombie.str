@@ -20,10 +20,10 @@ REFERENCE           RANDOM_WEAPON_950
 LANG_ENGLISH        "Press & hold ^3&&1^7 to use Mystery Box [Cost: 950]"
 
 REFERENCE           WEAPONCOSTAMMO
-LANG_ENGLISH        "For Weapon [Cost: &&1], For Ammo [&&2]"
+LANG_ENGLISH        "Use¼½¼For Weapon [Cost: &&1], For Ammo [&&2]"
 
 REFERENCE           WEAPONCOSTAMMO_UPGRADE
-LANG_ENGLISH        "For Weapon [Cost: &&1], Ammo [&&2], Upgraded Ammo [Cost: 4500]"
+LANG_ENGLISH        "Use¼½¼For Weapon [Cost: &&1], Ammo [&&2], Upgraded Ammo [Cost: 4500]"
 
 REFERENCE           ROUND_BEGIN
 LANG_ENGLISH        "Let The Onslaught Begin"
