@@ -971,6 +971,11 @@ weapon_crate_think()
 		{
 			continue;
 		}
+
+	/*	if( has_been_used_once == true)
+		{
+		}
+*/
 		if( !player islookingatorigin( lookat ) || level.falling_down == true ) // new check, because we're using trigger radius that doesnt have capability to support UseTriggerRequireLookAt()
 		{
 			self SetInvisibleToPlayer( player, true );
@@ -1015,8 +1020,9 @@ weapon_crate_think()
 			level.satchel_crate_lid RotateTo( level.satchel_crate_lid.angles + (92,0,0), 0.4, 0.1, 0.1);
 			level.question_mark RotateTo( level.question_mark.angles + (92,0,0), 0.4, 0.1, 0.1);
 			level thread give_satchel_after_rounds();
-			self SetHintString( &"REMASTERED_ZOMBIE_SATCHEL_PURCHASE" ); 
+
 		}
+
 
 		if(	isDefined(level.cabinet_open) && level.cabinet_open == true && level.round_number < 6 )
 		{
@@ -1050,7 +1056,8 @@ show_satchel_hint(satchel)
 	self.hintelem setText(&"REMASTERED_ZOMBIE_SATCHEL_HOWTO");
 	wait(0.25);
 	satchel SetInvisibleToPlayer( self, true ); // moved to here so we have a little delay if we instantly buy
-	
+	satchel SetHintString( &"REMASTERED_ZOMBIE_SATCHEL_PURCHASE" ); 
+
 	timer = 3;
 
 	while( self GetCurrentWeapon() != "satchel_charge" ) // smart hint, switches to hint 2 if we pull out satchles otherwise just waits until we do
