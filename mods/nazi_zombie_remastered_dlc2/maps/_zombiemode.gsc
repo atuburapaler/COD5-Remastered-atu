@@ -1148,9 +1148,9 @@ onPlayerSpawned()
 		if(players.size > 1)
 		{
 			self SetClientDvar( "cg_ScoresColor_Gamertag_0" , "1 1 1 1" );
-			self SetClientDvar( "cg_ScoresColor_Gamertag_1" , GetDvar( "cg_ScoresColor_Gamertag_1") );
-			self SetClientDvar( "cg_ScoresColor_Gamertag_2" , GetDvar( "cg_ScoresColor_Gamertag_2") );
-			self SetClientDvar( "cg_ScoresColor_Gamertag_3" , GetDvar( "cg_ScoresColor_Gamertag_3") );
+			self SetClientDvar( "cg_ScoresColor_Gamertag_1" , "0.486275 0.811765 0.933333 0" );
+			self SetClientDvar( "cg_ScoresColor_Gamertag_2" , "0.964706 0.792157 0.313726 0" );
+			self SetClientDvar( "cg_ScoresColor_Gamertag_3" , "0.513726 0.92549 0.533333 0" );
 			level.solo_egg = 0;
 		}
 /*		self SetClientDvars(
@@ -3408,6 +3408,8 @@ playerZombieStatSet( map, variable, value, override )
 
 nazizombies_set_new_zombie_stats()
 {
+	rank_init();
+
 	level.current_play_time = int( GetTime()/1000 ); 		// gets the time in seconds	
 
 	players = get_players();		
@@ -3443,15 +3445,19 @@ nazizombies_set_new_zombie_stats()
 		{*/
 		players[i].xp = players[i] zombieStatGet( "rankxp" );
 
-		if( players[i].xp <= 160000 ) // once we get 160k XP, then we are at max level so dont need to keep adding
+		if( players[i].xp < 153950 ) // once we get 160k XP, then we are at max level so dont need to keep adding
 		{
 			players[i].xp = total_kills * 10; // calculate our new xp,  based on 1 zombie kill = 10 xp, we cannot lose progress because its tied to total kills which gets summed above 
-
-			players[i].rank = players[i] maps\_challenges_coop::getRankForXp( players[i].xp ); 
-			players[i] zombieStatSet( "rankxp", players[i].xp ); 
+		}
+		else
+		{
+			players[i].xp = 153950;
 		}
 
-		if ( players[i].xp >= 160000 ) // once we have gotten max rank, we can prestige
+		players[i].rank = players[i] maps\_challenges_coop::getRankForXp( players[i].xp ); 
+		players[i] zombieStatSet( "rankxp", players[i].xp ); 
+
+		if ( players[i].xp >= 153950 ) // once we have gotten max rank, we can prestige
 		{
 			players[i].prestige = int(total_rounds/total_downs); // round to down ratio, because this ratio is different every game we can lose progress on this stat
 
@@ -3467,11 +3473,41 @@ nazizombies_set_new_zombie_stats()
 			players[i].prestige = 0;
 		}
 
-		players[i] setRank( players[i].rank, players[i].prestige );
+		players[i] setRank( players[i].rank + 1, players[i].prestige );
+		players[i] setstat(252, players[i].rank + 1 ); // add one because rankindex starts at 0
+
 	//	}
 
 		// note: to get stat number, do table lookup without GetStat--GetStat forces the stat value
 	}
+
+	UpdateGamerProfile();
+}
+
+// Initializations related to the ranks
+rank_init()
+{
+	// Set up the lookup tables for fetching rank data
+	level.rankTable = [];
+
+	//level.maxRank = int(tableLookup( "mp/rankTable.csv", 0, "maxrank", 1 ));
+	//level.maxPrestige = int(tableLookup( "mp/rankIconTable.csv", 0, "maxprestige", 1 ));
+
+	rankId = 0;
+	rankName = tableLookup( "mp/ranktable.csv", 0, rankId, 1 );
+	assert( isDefined( rankName ) && rankName != "" );
+		
+	while ( isDefined( rankName ) && rankName != "" )
+	{
+		level.rankTable[rankId][1] = tableLookup( "mp/ranktable.csv", 0, rankId, 1 );
+		level.rankTable[rankId][2] = tableLookup( "mp/ranktable.csv", 0, rankId, 2 );
+		level.rankTable[rankId][3] = tableLookup( "mp/ranktable.csv", 0, rankId, 3 );
+		level.rankTable[rankId][7] = tableLookup( "mp/ranktable.csv", 0, rankId, 7 );
+
+		rankId++;
+		rankName = tableLookup( "mp/ranktable.csv", 0, rankId, 1 );		
+	}
+
 }
 
 makeRankNumber( wave, players, time )
