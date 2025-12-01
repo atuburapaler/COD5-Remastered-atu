@@ -774,19 +774,19 @@ give_model( class )
 				character\char_zomb_player_1::main();
 				self SetUp_Weapons(level.startguns[1]);
 				self SetViewModel("viewmodel_rus_guard_arms");
-				self SetClientDvar( "cg_ScoresColor_Gamertag_0" , GetDvar( "cg_ScoresColor_Gamertag_1" ) );
+				self SetClientDvar( "cg_ScoresColor_Gamertag_0" , "0.486275 0.811765 0.933333 0" );
 				break;
 			case 2:
 				character\char_zomb_player_2::main();
 				self SetUp_Weapons(level.startguns[2]);
 				self SetViewModel("viewmodel_jap_infantry_arms");
-				self SetClientDvar( "cg_ScoresColor_Gamertag_0" , GetDvar( "cg_ScoresColor_Gamertag_2" ) );
+				self SetClientDvar( "cg_ScoresColor_Gamertag_0" , "0.964706 0.792157 0.313726 0" );
 				break;
 			case 3:
 				character\char_zomb_player_3::main();
 				self SetUp_Weapons(level.startguns[3]);
 				self SetViewModel("viewmodel_usa_pbycrew_arms");
-				self SetClientDvar( "cg_ScoresColor_Gamertag_0" , GetDvar( "cg_ScoresColor_Gamertag_3" ) );
+				self SetClientDvar( "cg_ScoresColor_Gamertag_0" , "0.513726 0.92549 0.533333 0" );
 				break;
 			}
 			
