@@ -945,7 +945,7 @@ revive_hud_create()
 
 	if( GetDvar( "zombiemode" ) == "1" )
 	{
-		self.revive_hud.y = -100;
+		self.revive_hud.y = -106;
 	}
 }
 
