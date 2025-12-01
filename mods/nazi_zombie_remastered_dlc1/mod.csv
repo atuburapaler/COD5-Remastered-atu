@@ -168,3 +168,9 @@ material,fonts/gamefonts2pc
 menufile,ui/playerlist.inc
 rawfile,bik/bink_front_end_screen_home.bik
 localize,key
+localize,menu
+rawfile,buttons_nomad_new.cfg
+rawfile,buttons_default_alt_flipped.cfg
+rawfile,buttons_experimental_alt_flipped.cfg
+rawfile,buttons_lefty_alt_flipped.cfg
+rawfile,buttons_nomad_flipped.cfg
