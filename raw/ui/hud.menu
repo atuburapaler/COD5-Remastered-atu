@@ -82,7 +82,7 @@
 	menuDef
 	{
     	name			"MantleHint"
-    	rect			0 155 40 40 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER // 0 115 40 40 // originally 0 126
+    	rect			0 -89 40 40 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_BOTTOM // 0 115 40 40 // originally 0 126
 		fullScreen		0
 		visible 1;
 
@@ -147,6 +147,23 @@
 			visible			when( dvarInt( "playerSpectating" ) == 1  && dvarBool( cl_paused ) == 0 && dvarBool(cg_thirdPerson) == 0 && dvarInt( "cg_drawGamepadHUD" ) == 1 )
 			decoration
 		}
+
+/*		itemDef
+		{
+			name			"SpectateGP"
+	    	rect			260 -215 40 40 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_BOTTOM
+			type			ITEM_TYPE_TEXT
+			textscale		(TEXTSIZE_SMALL - 0.04)
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textalign		ITEM_ALIGN_CENTER
+			textfont 		UI_FONT_SMALL // TEMP
+			exp 			text ( locString( "@REMASTERED_HINT_SPEC" ) );
+			visible			when( dvarInt( "playerSpectating" ) == 1  && dvarBool( cl_paused ) == 0 && dvarInt( "cg_drawGamepadHUD" ) == 1 )
+			decoration
+		}
+REFERENCE           HINT_SPEC
+LANG_ENGLISH		"Menu\n \nNext\n \nPrev\n \nThird Person View\n \nScore"
+		*/
 
 	}
 

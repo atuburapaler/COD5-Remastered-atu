@@ -129,18 +129,7 @@
 			OVERLAY_BACKGROUND_VIS( !menuisopen( "menu_xboxlive_barracks" ) )
 			CHOICE_OVERLAY_TITLE( "@MENU_CHALLENGES_CAP" )
 		#endif
-		
-		#undef BACK_OPEN
-		#define BACK_OPEN	close self;
-		#include "ui/navcontrols.inc"
 
-				
-#define COOP_TIER_ACTION \
-	play "mouse_click"; \
-	execnow "set ui_table_name mp/challengeTable_coop.csv"; \
-	/*statSetUsingTable( pstat, 1 ); */ \
-	/*exec "uploadstats";*/ \
-	open "popup_tier"
 
 #define CLEAR_BIOS \
         setLocalVarBool dempsey 0;\
@@ -154,6 +143,10 @@
 		CHOICE_BUTTON_FOCUS( 3, "@REMASTERED_JAPANESE_HERO_NAME", ;, CLEAR_BIOS setLocalVarBool takeo 1; , setLocalVarInt ui_highlight 3; )
 		CHOICE_BUTTON_FOCUS( 4, "@REMASTERED_GERMAN_HERO_NAME", ;, CLEAR_BIOS setLocalVarBool richtofen 1; , setLocalVarInt ui_highlight 4; )
 
+		
+		#undef BACK_OPEN
+		#define BACK_OPEN	close self;
+		#include "ui/navcontrols.inc"
 
 		#include "ui/safearea.menu"
 

@@ -49,13 +49,45 @@
 			close self;		
 		}
 
+		#define SET_JOYSTICK \
+		execondvarstringvalue gpad_sticksConfig thumbstick_default "exec thumbstick_default";\
+		execondvarstringvalue gpad_sticksConfig thumbstick_southpaw "exec thumbstick_southpaw";\
+		execondvarstringvalue gpad_sticksConfig thumbstick_legacy "exec thumbstick_legacy";\
+		execondvarstringvalue gpad_sticksConfig thumbstick_legacysouthpaw "exec thumbstick_legacysouthpaw";
+
+		#define SET_BUTTONS \
+		execondvarstringvalue gpad_buttonsConfig buttons_default_alt "exec buttons_default_alt";\
+		execondvarstringvalue gpad_buttonsConfig buttons_experimental_alt "exec buttons_experimental_alt";\
+		execondvarstringvalue gpad_buttonsConfig buttons_lefty_alt "exec buttons_lefty_alt";\
+		execondvarstringvalue gpad_buttonsConfig buttons_nomad "exec buttons_nomad_new";
+
+		#define SET_BUTTONS_FLIPPED \
+		execondvarstringvalue gpad_buttonsConfig buttons_default_alt "exec buttons_default_alt_flipped";\
+		execondvarstringvalue gpad_buttonsConfig buttons_experimental_alt "exec buttons_experimental_alt_flipped";\
+		execondvarstringvalue gpad_buttonsConfig buttons_lefty_alt "exec buttons_lefty_alt_flipped";\
+		execondvarstringvalue gpad_buttonsConfig buttons_nomad "exec buttons_nomad_flipped";
+
 		#include "ui_mp/leftside_controls.inc"
 		
 		CHOICE_SECTION_TITLE_VIS( 21, "@MENU_MULTIPLAYER_CONTROLS_CAP", when( dvarint( ui_multiplayer ) ); )
 		CHOICE_SECTION_TITLE_VIS( 21, "@MENU_COOPERATIVE_CONTROLS_CAP", when( !dvarint( ui_multiplayer ) ); )
 
-		CHOICE_BIND( 22, "@MENU_VOICE_CHAT_BUTTON", "+talk", ; )
-		CHOICE_BIND( 23, "@MENU_CHAT", "chatmodepublic", ; )
-		CHOICE_KEYBINDHELP
+		CHOICE_DVARFLOATLIST( 22, "@REMASTERED_CTRL_INVERSION", input_invertpitch, { "@REMASTERED_DISABLED" 0 "@REMASTERED_ENABLED" 1 }, ; )
+		// MENU_CONTROLLER_VIBRATION would go here 23 NEEDS TO BE ADDED TO DEFAULT CONTROLS
+		// Aim assist would go here 24 NEEDS TO BE ADDED TO DEFAULT CONTROLS
+		CHOICE_DVARFLOATLIST( 23, "@MENU_LOOK_SENSITIVITY", input_viewSensitivity, { "@REMASTERED_LOW" 0.6 "@REMASTERED_MED" 1 "3" 1.4 "@REMASTERED_HI" 1.8 "5" 2 "6" 2.2 "@REMASTERED_V_HI" 2.6 "8" 3 "9" 3.5 "@REMASTERED_INSANE" 4 }, ; )
+
+		CHOICE_SEPARATOR( CHOICE_SEP_1 )
+
+		CHOICE_DVARSTRINGLIST_VIS( 24, "@MENU_THUMBSTICK_LAYOUT", gpad_sticksConfig, { "@MENU_DEFAULT"; "thumbstick_default"; "@MENU_SOUTHPAW"; "thumbstick_southpaw"; "@MENU_LEGACY"; "thumbstick_legacy" ; "@MENU_LEGACY_SOUTHPAW"; "thumbstick_legacysouthpaw" }, SET_JOYSTICK, 1 )
+		CHOICE_DVARSTRINGLIST_VIS( 25, "@MENU_BUTTON_LAYOUT", gpad_buttonsConfig, { "@MENU_DEFAULT"; "buttons_default_alt"; "@MENU_TACTICAL"; "buttons_experimental_alt"; "@MENU_LEFTY"; "buttons_lefty_alt" ; "@PATCH_NOMAD"; "buttons_nomad" }, SET_BUTTONS, when( !dvarint(gpad_flip_triggers) ) )
+		CHOICE_DVARSTRINGLIST_VIS( 25, "@MENU_BUTTON_LAYOUT", gpad_buttonsConfig, { "@MENU_DEFAULT_ALT"; "buttons_default_alt"; "@MENU_TACTICAL_ALT"; "buttons_experimental_alt"; "@MENU_LEFTY_ALT"; "buttons_lefty_alt" ; "@MENU_NOMAD_ALT"; "buttons_nomad" }, SET_BUTTONS_FLIPPED, when( dvarInt(gpad_flip_triggers) ) )
+
+		CHOICE_DVARFLOATLIST_VIS( 26, "@REMASTERED_CTRL_FLIP", gpad_flip_triggers, { "@MENU_DEFAULT" 0 "@REMASTERED_CTRL_FLIPPED" 1 }, exec "bind BUTTON_RSHLDR +attack"; exec "bind BUTTON_LSHLDR +speed_throw"; exec "bind BUTTON_RTRIG +frag"; exec "bind BUTTON_LTRIG +smoke"; exec "bind2 BUTTON_RSHLDR +gas"; exec "bind2 BUTTON_LSHLDR +reverse"; setdvar gpad_buttonsConfig buttons_default_alt; exec "exec buttons_default_alt_flipped.cfg", when( !dvarint(gpad_flip_triggers) ) ) // when 0
+		CHOICE_DVARFLOATLIST_VIS( 26, "@REMASTERED_CTRL_FLIP", gpad_flip_triggers, { "@MENU_DEFAULT" 0 "@REMASTERED_CTRL_FLIPPED" 1 }, exec "bind BUTTON_RSHLDR +frag"; exec "bind BUTTON_LSHLDR +smoke"; exec "bind BUTTON_RTRIG +attack"; exec "bind BUTTON_LTRIG +speed_throw"; exec "bind2 BUTTON_RTRIG +gas"; exec "bind2 BUTTON_LTRIG +reverse"; setdvar gpad_buttonsConfig buttons_default_alt; exec "exec buttons_default_alt.cfg", when( dvarint(gpad_flip_triggers) ) ) // when 1
+
+		//CHOICE_BIND( 22, "@MENU_VOICE_CHAT_BUTTON", "+talk", ; )
+		//CHOICE_BIND( 23, "@MENU_CHAT", "chatmodepublic", ; )
+		//CHOICE_KEYBINDHELP
 	}
 }

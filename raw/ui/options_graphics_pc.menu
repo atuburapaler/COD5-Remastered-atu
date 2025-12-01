@@ -138,9 +138,9 @@ setLocalVarBool hint_gamma 0;
 
 		CHOICE_DVARFLOATLIST_VIS( 34, "@MENU_NUMBER_OF_CORPSES", ai_corpsecount, { "@MENU_TINY" 3 "@MENU_SMALL" 5 "@MENU_MEDIUM" 10 "@MENU_LARGE" 20 "@MENU_INSANE" 32 }, ;, when( !dvarint( ui_multiplayer ) ) )
 
-		CHOICE_DVARFLOATLIST_FOCUS_VIS( 35, "@REMASTERED_CINEMATIC_SHADERS", r_gamma_x360, { "@MENU_DEFAULT" 0 "@MENU_CLASSIC" 1 }, ;, ; /*setLocalVarBool hint_gamma 1*/, ; /*CLEAR_HINTS*/ , 1 )
+		CHOICE_DVARFLOATLIST_FOCUS_VIS( 35, "@REMASTERED_CINEMATIC_SHADERS", r_gamma_x360, { "@MENU_DEFAULT" 0 "@MENU_CLASSIC" 1 }, ;, ; /*setLocalVarBool hint_gamma 1*/, ; /*CLEAR_HINTS*/ , when(dvarInt(version_t4me) > 48 ) )
 		//CHOICE_DVARSLIDER_VIS_FOCUS( 36, "@REMASTERED_SAFEAREA", safeArea_horizontal, 1.0, 0.85, 1.0, ; /*setLocalVarBool ui_showApply 1; */execnow "setfromdvar safeArea_ui safeArea_horizontal", 1 /*when( dvarBool( cl_ingame ) )*/ , ; /*setLocalVarBool hint_safeArea 1*/, /*CLEAR_HINTS*/ ; )
-		CHOICE_DVARSLIDER_VIS_FOCUS( 36, "@REMASTERED_SAFEAREA", safeArea_ui, 1.0, 0.85, 1.0, ; setLocalVarBool ui_showApplySafeArea 1/*; exec "setfromdvar safeArea_horizontal safeArea_vertical"*/, 1 /*when( !dvarBool( cl_ingame ) )*/ , ; /*setLocalVarBool hint_safeArea 1*/, /*CLEAR_HINTS*/ ; )
+		CHOICE_DVARSLIDER_VIS_FOCUS( 36, "@REMASTERED_SAFEAREA", safeArea_ui, 1.0, 0.85, 1.0, ; setLocalVarBool ui_showApplySafeArea 1/*; exec "setfromdvar safeArea_horizontal safeArea_vertical"*/, when(dvarInt(version_t4me) > 48 ) /*when( !dvarBool( cl_ingame ) )*/ , ; /*setLocalVarBool hint_safeArea 1*/, /*CLEAR_HINTS*/ ; )
 
 		//CHOICE_BUTTON( 35, "@MENU_TEXTURE_SETTINGS", close self; open options_graphics_texture )
 /*		
