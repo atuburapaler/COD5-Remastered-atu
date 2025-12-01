@@ -162,13 +162,10 @@ REFERENCE           FPS_HUD
 LANG_ENGLISH        "Display FPS"
 
 REFERENCE           CTRL_INVERSION
-LANG_ENGLISH        "Controller Inversion"
-
-REFERENCE           CTRL_SENSE
-LANG_ENGLISH        "Controller Sensitivity"
+LANG_ENGLISH        "Inversion"
 
 REFERENCE           CTRL_FLIP
-LANG_ENGLISH        "Controller Triggers"
+LANG_ENGLISH        "Trigger Buttons"
 
 REFERENCE           CTRL_FLIPPED
 LANG_ENGLISH        "Flipped"
@@ -225,7 +222,7 @@ REFERENCE           MODIFIED
 LANG_ENGLISH        "Modified"
 
 REFERENCE           CONTROLLER_SUPPORT
-LANG_ENGLISH        "Controller Mode"
+LANG_ENGLISH        "Gamepad"
 
 REFERENCE           SAFEAREA
 LANG_ENGLISH        "Safe Area"
@@ -234,19 +231,19 @@ REFERENCE           CONTROLLER_V1
 LANG_ENGLISH        "Enable to bind gamepad controls and use console style HUD."
 
 REFERENCE           CONTROLLER_V2
-LANG_ENGLISH        "Note: Only Xbox controllers have native support. \nActive during gameplay."
+LANG_ENGLISH        "Note: Only Xbox controllers have native support. \nLimited support on menus."
 
 REFERENCE           HINT_GAMETYPE
 LANG_ENGLISH        "Adjusts the flow of zombie waves. Classic mode reverts to the 24 per-round limit in solo and removes Carpenter power-ups."
 
 REFERENCE           HINT_GAMETYPE_ALT
-LANG_ENGLISH        "Adjusts the flow of zombie waves. Classic mode removes Carpenter power-ups."
+LANG_ENGLISH        "Adjusts the flow of zombie waves. In cooperative, classic mode only removes Carpenter power-ups."
 
 REFERENCE           HINT_LASTSTAND
-LANG_ENGLISH        "Adjusts the balance of players and perks. Classic mode reverts to 30-second bleed-outs, has no solo Quick Revive lives, and has no Double-Tap damage buff."
+LANG_ENGLISH        "Adjusts the balance of players and perks. Classic mode reverts to 30-second bleed-outs, removes solo Quick Revive lives, and removes Double-Tap damage buff."
 
 REFERENCE           HINT_LASTSTAND_ALT
-LANG_ENGLISH        "Adjusts the balance of players and perks. Classic mode reverts to 30-second bleed-outs, has no solo Quick Revive lives, and has no Double-Tap damage buff."
+LANG_ENGLISH        "Adjusts the balance of players and perks. Classic mode reverts to 30-second bleed-outs and removes Double-Tap damage buff."
 
 REFERENCE           HINT_PUSHING
 LANG_ENGLISH        "Adjusts the zombie grabbing effect. Classic mode reverts to "sticky" zombies by enabling the push player setting as seen in the original release."
@@ -524,6 +521,12 @@ LANG_ENGLISH        "Achievement Description:"
 REFERENCE           ITEM
 LANG_ENGLISH        "Special Equipment"
 
+REFERENCE           ITEM_OTHER
+LANG_ENGLISH        "Other Equipment"
+
+REFERENCE           EXPLOSIVES
+LANG_ENGLISH        "Explosives"
+
 REFERENCE           USERELOAD
 LANG_ENGLISH        "Use/Reload"
 
@@ -531,7 +534,7 @@ REFERENCE           SCOREBOARD
 LANG_ENGLISH        "Scoreboard"
 
 REFERENCE           SCREENSHOT
-LANG_ENGLISH        "Requires Video Mode set to 1920x1080 resolution or lower."
+LANG_ENGLISH        "Screenshots not supported above Video Mode of 1920x1080."
 
 REFERENCE           CHANGE_STANCE
 LANG_ENGLISH        "Change Stance"
@@ -592,6 +595,9 @@ LANG_ENGLISH        "Perks Consumed"
 
 REFERENCE           MYSTERY_BOX
 LANG_ENGLISH        "Mystery Box Opens"
+
+REFERENCE           PRESS_ENTER
+LANG_ENGLISH		"Press ENTER key"
 
 REFERENCE           HINT_PRESS
 LANG_ENGLISH		"Press ^3"
