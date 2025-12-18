@@ -78,7 +78,9 @@ main()
 		musicAliasloop("mx_dog_wave", 0, 0.5);
 
 	declareMusicState("end_of_game");
-		musicAlias("mx_game_over", 0);
+		musicAlias("mx_game_over", 0.05);
+
+	declareMusicState("SILENT");
 
 
 	thread radio_init();

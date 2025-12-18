@@ -800,7 +800,7 @@ onPlayerSpawned()
 			self maps\_laststand::revive_hud_create();
 
 			self thread maps\_cheat::player_init(); 
-
+			
 			wait( 0.05 );
 			self.player_inited = true;
 		}

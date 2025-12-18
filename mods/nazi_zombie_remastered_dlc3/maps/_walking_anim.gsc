@@ -1,8 +1,9 @@
 #include common_scripts\utility; 
 #include maps\_utility;
 
-main()
+player_init()
 {	
+
 	self thread walk_main();
 	self thread rot_main();
 	self thread prone_checks();
@@ -11,6 +12,7 @@ main()
 walk_main()
 {
 	self endon("disconnect");
+	self endon("death");
 
 	self SetClientDvar("cg_bobWeaponMax", 5);
 
@@ -33,8 +35,9 @@ walk_main()
 rot_main()
 {
 	self endon("disconnect");
+	self endon("death");
 
-	for(;;)
+	while(1)
 	{
 		roll = self GetVelocity() * anglestoright(self GetPlayerAngles());
 		roll = roll/28;
@@ -48,10 +51,11 @@ rot_main()
 prone_checks()
 {
 	self endon("disconnect");
-	
+	self endon("death");
+
 	self SetClientDvar("bg_bobAmplitudeProne", "0.08 0.04");
 
-	if(getDvarInt( "cg_lowerGun" ) == 1 && GetPlayers().size == 1 )
+	if(getDvarInt( "cg_lowerGun" ) == 1 && get_players().size == 1 )
 	{
 		self SetClientDvar("cg_gun_move_minspeed", 0);
 		return;

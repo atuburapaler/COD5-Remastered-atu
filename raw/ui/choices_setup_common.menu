@@ -791,6 +791,9 @@
 #define CHOICE_DVARSTRINGLIST_VIS( itemIndex, textArg, dvarArg, strListArg, actionArg, visArg ) \
 		CHOICE_DVARLIST_VIS( itemIndex, textArg, dvarArg, ITEM_TYPE_MULTI, dvarStrList strListArg, actionArg, visArg )
 
+#define CHOICE_DVARSTRINGLIST_FOCUS_VIS( itemIndex, textArg, dvarArg, strListArg, actionArg, onFocusArg, leaveFocusArg, visArg ) \
+		CHOICE_DVARLIST_FOCUS_VIS( itemIndex, textArg, dvarArg, ITEM_TYPE_MULTI, dvarStrList strListArg, actionArg, onFocusArg, leaveFocusArg, visArg )
+
 #define CHOICE_DVARFLOATLIST( itemIndex, textArg, dvarArg, strListArg, actionArg ) \
 		CHOICE_DVARLIST_VIS( itemIndex, textArg, dvarArg, ITEM_TYPE_MULTI, dvarFloatList strListArg, actionArg, 1 )
 

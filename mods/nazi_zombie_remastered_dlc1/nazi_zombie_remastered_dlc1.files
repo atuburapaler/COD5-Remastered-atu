@@ -55,6 +55,7 @@ images\line_bio.iwi
 images\makin_door_wood2_c.iwi
 images\makin_door_wood2_n.iwi
 images\side_small.iwi
+images\spec_xenon.iwi
 images\specialty_2x_zombies.iwi
 images\specialty_doubletap_zombies.iwi
 images\specialty_fastreload_zombies.iwi
@@ -100,7 +101,7 @@ maps\createart\nazi_zombie_asylum_art.gsc
 maps\createfx\nazi_zombie_asylum_fx.gsc
 maps\nazi_zombie_asylum.gsc
 maps\nazi_zombie_asylum_fx.gsc
-maps\walking_anim.gsc
+maps\_walking_anim.gsc
 sound\Stream\Music\Mission\zombie\mx_lullaby.wav
 mod.csv
 sound\voiceovers\zombie\dlc1\Player0\feedback_ammo_low_00.wav

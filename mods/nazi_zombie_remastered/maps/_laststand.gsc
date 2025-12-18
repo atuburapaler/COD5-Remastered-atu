@@ -23,7 +23,7 @@ init()
 	}
 
 	level.primaryProgressBarX = 0;
-	level.primaryProgressBarY = 110;
+	level.primaryProgressBarY = -130;
 	level.primaryProgressBarHeight = 4;
 	level.primaryProgressBarWidth = 120;
 

@@ -94,6 +94,7 @@ images\pby_crew_viewarm_c.iwi
 images\richtofen_bio.iwi
 images\richtofen_diary.iwi
 images\side_small.iwi
+images\spec_xenon.iwi
 images\specialty_2x_zombies.iwi
 images\specialty_doubletap_zombies.iwi
 images\specialty_fastreload_zombies.iwi
@@ -156,7 +157,7 @@ maps\nazi_zombie_sumpf_trap_pendulum.gsc
 maps\nazi_zombie_sumpf_trap_perk_electric.gsc
 maps\nazi_zombie_sumpf_zipline.gsc
 maps\nazi_zombie_sumpf_zone_management.gsc
-maps\walking_anim.gsc
+maps\_walking_anim.gsc
 sound\Stream\Music\Mission\zombie\mx_the_one.wav
 mod.csv
 weapons\sp\bazooka_zombie

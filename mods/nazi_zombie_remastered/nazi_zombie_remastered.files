@@ -53,11 +53,13 @@ images\line_bio.iwi
 images\makin_door_wood2_c.iwi
 images\makin_door_wood2_n.iwi
 images\side_small.iwi
+images\spec_xenon.iwi
 images\specialty_2x_zombies.iwi
 images\specialty_instakill_zombies.iwi
 images\w_bar_mp_c.iwi
 maps\_busing.gsc
 maps\_callbackglobal.gsc
+maps\_callbacksetup.gsc
 maps\_challenges_coop.gsc
 maps\_destructible_opel_blitz.gsc
 maps\_detonategrenades.gsc
@@ -65,6 +67,7 @@ maps\_gameskill.gsc
 maps\_hud_achievement.gsc
 maps\_interactive_objects.gsc
 maps\_laststand.gsc
+maps\_load.gsc
 maps\_loadout.gsc
 maps\_utility.gsc
 maps\_zombiemode.gsc
@@ -86,7 +89,7 @@ maps\createart\nazi_zombie_prototype_art.gsc
 maps\createfx\nazi_zombie_prototype_fx.gsc
 maps\nazi_zombie_prototype.gsc
 maps\nazi_zombie_prototype_fx.gsc
-maps\walking_anim.gsc
+maps\_walking_anim.gsc
 mod.csv
 sound\customSFX\zombie\crawl\crawl_00.wav
 sound\customSFX\zombie\crawl\crawl_01.wav

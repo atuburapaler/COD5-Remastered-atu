@@ -101,7 +101,7 @@ setLocalVarBool hint_gamma 0;
 		CHOICE_DVARSTRINGLIST_VIS( 24, "@MENU_ASPECT_RATIO", ui_r_aspectratio, { "@MENU_AUTO"; "auto"; "@MENU_STANDARD_4_3"; "standard"; "@MENU_WIDE_16_10"; "wide 16:10"; "@MENU_WIDE_16_9"; "wide 16:9" }, setLocalVarBool ui_showApply 1, when( ( (dvarint(sv_running)==0) || ( localVarInt(ui_allow_graphic_change)==1 ) ) && ( !dvarBool( cl_ingame ) ) ); )
 		CHOICE_DVARFLOATLIST_VIS( 25, "@MENU_ANTIALIASING", ui_r_aasamples, { "@MENU_OFF" 1 "@MENU_2X" 2 "@MENU_4X" 4 "@REMASTERED_8X" 8 }, setLocalVarBool ui_showApply 1;, when( ( (dvarint(sv_running)==0) || ( localVarInt(ui_allow_graphic_change)==1 ) ) && ( !dvarBool( cl_ingame ) ) ); )
 
-		//CHOICE_DDVARALTTEXT_VIS( 25, "@REMASTERED_SAFEAREA", "@REMASTERED_DEFAULT", when(  INGAME && dvarFloat( "safeArea_horizontal") == 1 ) )
+		//CHOICE_DDVARALTTEXT_VIS( 25, "@REMASTERED_SAFEAREA", "@MENU_DEFAULT", when(  INGAME && dvarFloat( "safeArea_horizontal") == 1 ) )
 		//CHOICE_DDVARALTTEXT_VIS( 25, "@REMASTERED_SAFEAREA", "@REMASTERED_MODIFIED", when(  INGAME && dvarFloat( "safeArea_horizontal") != 1 ) )
 
 		//CHOICE_DVARYESNO( 23, "@MENU_FULLSCREEN", ui_r_fullscreen, setLocalVarBool ui_showApply 1 )
@@ -277,7 +277,7 @@ setLocalVarBool hint_gamma 0;
 	}
 	
 
-
+#undef CHOICE_DVARSTRINGLIST_FOCUS_VIS
 #undef ENABLE_SEPARATOR
 #undef ENABLE_TITLE_BG
 #undef A_BUTTON_BG_COLOR

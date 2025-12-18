@@ -107,7 +107,7 @@
 			textstyle		ITEM_TEXTSTYLE_SHADOWED
 			textalign		ITEM_ALIGN_CENTER
 			exp 			text ( /*"- " + */locString( "@REMASTERED_HINT_PRESS" ) + KeyBinding("+activate") +  locString( "@REMASTERED_HINT_ENTER_FIRST" ) );
-			visible			when( dvarInt( "playerSpectating" ) == 1 && dvarBool( cl_paused ) == 0 && dvarBool(cg_thirdPerson) == 1 && dvarInt( "cg_drawGamepadHUD" ) != 1  )
+			visible			when( dvarInt( "playerSpectatingHide" ) == 0 && dvarInt( "playerSpectating" ) == 1 && dvarBool( cl_paused ) == 0 && dvarBool(cg_thirdPerson) == 1 && dvarInt( "cg_drawGamepadHUD" ) != 1  )
 			decoration
 		}
 		itemDef
@@ -118,10 +118,10 @@
 			textstyle		ITEM_TEXTSTYLE_SHADOWED
 			textalign		ITEM_ALIGN_CENTER
 			exp 			text ( /*"- " + */locString( "@REMASTERED_HINT_PRESS" ) + KeyBinding("+activate") +  locString( "@REMASTERED_HINT_ENTER_THIRD" ) );
-			visible			when( dvarInt( "playerSpectating" ) == 1  && dvarBool( cl_paused ) == 0 && dvarBool(cg_thirdPerson) == 0 && dvarInt( "cg_drawGamepadHUD" ) != 1 )
+			visible			when( dvarInt( "playerSpectatingHide" ) == 0 && dvarInt( "playerSpectating" ) == 1  && dvarBool( cl_paused ) == 0 && dvarBool(cg_thirdPerson) == 0 && dvarInt( "cg_drawGamepadHUD" ) != 1 )
 			decoration
 		}
-		itemDef
+/*		itemDef
 		{
 			name			"In_3rdPersonGP"
 			type			ITEM_TYPE_TEXT
@@ -130,7 +130,7 @@
 			textalign		ITEM_ALIGN_CENTER
 			textfont 		UI_FONT_SMALL // TEMP
 
-			exp 			text ( /*"- " + */locString( "@REMASTERED_HINT_PRESS" ) + locString( "@KEY_HINT_GP" ) +  locString( "@REMASTERED_HINT_ENTER_FIRST" ) );
+			exp 			text ( locString( "@REMASTERED_HINT_PRESS" ) + locString( "@KEY_HINT_GP" ) +  locString( "@REMASTERED_HINT_ENTER_FIRST" ) );
 			visible			when( dvarInt( "playerSpectating" ) == 1  && dvarBool( cl_paused ) == 0 && dvarBool(cg_thirdPerson) == 1 && dvarInt( "cg_drawGamepadHUD" ) == 1 )
 			decoration
 		}
@@ -143,28 +143,105 @@
 			textalign		ITEM_ALIGN_CENTER
 			textfont 		UI_FONT_SMALL // TEMP
 
-			exp 			text ( /*"- " + */locString( "@REMASTERED_HINT_PRESS" ) + locString( "@KEY_HINT_GP" ) +  locString( "@REMASTERED_HINT_ENTER_THIRD" ) );
+			exp 			text ( locString( "@REMASTERED_HINT_PRESS" ) + locString( "@KEY_HINT_GP" ) +  locString( "@REMASTERED_HINT_ENTER_THIRD" ) );
 			visible			when( dvarInt( "playerSpectating" ) == 1  && dvarBool( cl_paused ) == 0 && dvarBool(cg_thirdPerson) == 0 && dvarInt( "cg_drawGamepadHUD" ) == 1 )
 			decoration
-		}
+		}*/
 
-/*		itemDef
+		#define SPEC_OFFSET_X -131
+		#define SPEC_OFFSET_Y -222
+		#define SPEC_FACTOR_X 28
+		#define SPEC_SHADER_FACTOR 2.25
+
+		itemDef
 		{
-			name			"SpectateGP"
-	    	rect			260 -215 40 40 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_BOTTOM
-			type			ITEM_TYPE_TEXT
-			textscale		(TEXTSIZE_SMALL - 0.04)
-			textstyle		ITEM_TEXTSTYLE_SHADOWED
-			textalign		ITEM_ALIGN_CENTER
-			textfont 		UI_FONT_SMALL // TEMP
-			exp 			text ( locString( "@REMASTERED_HINT_SPEC" ) );
-			visible			when( dvarInt( "playerSpectating" ) == 1  && dvarBool( cl_paused ) == 0 && dvarInt( "cg_drawGamepadHUD" ) == 1 )
+			style			WINDOW_STYLE_SHADER
+			rect			(SPEC_OFFSET_X - 27.4) (SPEC_OFFSET_Y - 16 ) (64/SPEC_SHADER_FACTOR) (512/SPEC_SHADER_FACTOR) HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_BOTTOM
+			origin			0 0
+			background		"spec_xenon"
+			forecolor		1 1 1 1
+			visible			when( dvarInt( "playerSpectatingHide" ) == 1 && dvarInt( "playerSpectating" ) == 1  && dvarBool( cl_paused ) == 0 && dvarInt( "cg_drawGamepadHUD" ) == 1 )
 			decoration
 		}
-REFERENCE           HINT_SPEC
-LANG_ENGLISH		"Menu\n \nNext\n \nPrev\n \nThird Person View\n \nScore"
-		*/
 
+		itemDef
+		{
+			name			"SpectateGP_Menu"
+	    	rect			SPEC_OFFSET_X SPEC_OFFSET_Y 40 40 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_BOTTOM
+			type			ITEM_TYPE_TEXT
+			textscale		(TEXTSIZE_SMALL)
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textalign		ITEM_ALIGN_LEFT
+			textfont 		UI_FONT_SMALL 
+			exp 			text ( locString( "@REMASTERED_SPEC_MENU" ) );
+			visible			when( dvarInt( "playerSpectatingHide" ) == 1 && dvarInt( "playerSpectating" ) == 1  && dvarBool( cl_paused ) == 0 && dvarInt( "cg_drawGamepadHUD" ) == 1 )
+			decoration
+		}
+		itemDef
+		{
+			name			"SpectateGP_Next"
+	    	rect			SPEC_OFFSET_X (SPEC_OFFSET_Y + SPEC_FACTOR_X * 1) 40 40 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_BOTTOM
+			type			ITEM_TYPE_TEXT
+			textscale		(TEXTSIZE_SMALL)
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textalign		ITEM_ALIGN_LEFT
+			textfont 		UI_FONT_SMALL 
+			exp 			text ( locString( "@REMASTERED_SPEC_NEXT" ) );
+			visible			when( dvarInt( "playerSpectatingHide" ) == 1 && dvarInt( "playerSpectating" ) == 1  && dvarBool( cl_paused ) == 0 && dvarInt( "cg_drawGamepadHUD" ) == 1 )
+			decoration
+		}
+		itemDef
+		{
+			name			"SpectateGP_Prev"
+	    	rect			SPEC_OFFSET_X (SPEC_OFFSET_Y + SPEC_FACTOR_X * 2) 40 40 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_BOTTOM
+			type			ITEM_TYPE_TEXT
+			textscale		(TEXTSIZE_SMALL)
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textalign		ITEM_ALIGN_LEFT
+			textfont 		UI_FONT_SMALL 
+			exp 			text ( locString( "@REMASTERED_SPEC_PREV" ) );
+			visible			when( dvarInt( "playerSpectatingHide" ) == 1 && dvarInt( "playerSpectating" ) == 1  && dvarBool( cl_paused ) == 0 && dvarInt( "cg_drawGamepadHUD" ) == 1 )
+			decoration
+		}
+		itemDef
+		{
+			name			"SpectateGP_First"
+	    	rect			SPEC_OFFSET_X (SPEC_OFFSET_Y + SPEC_FACTOR_X * 3) 40 40 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_BOTTOM
+			type			ITEM_TYPE_TEXT
+			textscale		(TEXTSIZE_SMALL)
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textalign		ITEM_ALIGN_LEFT
+			textfont 		UI_FONT_SMALL 
+			exp 			text ( locString( "@REMASTERED_SPEC_FIRST" ) );
+			visible			when( dvarBool(cg_thirdPerson) == 1 && dvarInt( "playerSpectatingHide" ) == 1 && dvarInt( "playerSpectating" ) == 1  && dvarBool( cl_paused ) == 0 && dvarInt( "cg_drawGamepadHUD" ) == 1 )
+			decoration
+		}
+		itemDef
+		{
+			name			"SpectateGP_Third"
+	    	rect			SPEC_OFFSET_X (SPEC_OFFSET_Y + SPEC_FACTOR_X * 3) 40 40 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_BOTTOM
+			type			ITEM_TYPE_TEXT
+			textscale		(TEXTSIZE_SMALL)
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textalign		ITEM_ALIGN_LEFT
+			textfont 		UI_FONT_SMALL 
+			exp 			text ( locString( "@REMASTERED_SPEC_THIRD" ) );
+			visible			when( dvarBool(cg_thirdPerson) == 0 && dvarInt( "playerSpectatingHide" ) == 1 && dvarInt( "playerSpectating" ) == 1  && dvarBool( cl_paused ) == 0 && dvarInt( "cg_drawGamepadHUD" ) == 1 )
+			decoration
+		}
+		itemDef
+		{
+			name			"SpectateGP_Score"
+	    	rect			SPEC_OFFSET_X (SPEC_OFFSET_Y + SPEC_FACTOR_X * 4) 40 40 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_BOTTOM
+			type			ITEM_TYPE_TEXT
+			textscale		(TEXTSIZE_SMALL)
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textalign		ITEM_ALIGN_LEFT
+			textfont 		UI_FONT_SMALL 
+			exp 			text ( locString( "@REMASTERED_SPEC_SCORE" ) );
+			visible			when( dvarInt( "playerSpectatingHide" ) == 1 && dvarInt( "playerSpectating" ) == 1  && dvarBool( cl_paused ) == 0 && dvarInt( "cg_drawGamepadHUD" ) == 1 )
+			decoration
+		}
 	}
 
 	// Cursor hints
@@ -424,20 +501,20 @@ LANG_ENGLISH		"Menu\n \nNext\n \nPrev\n \nThird Person View\n \nScore"
 menuDef
 {
 	name			"competitivemodescores"
-	rect			(-124 + 20) (-75 - 2) 0 0 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_BOTTOM
+	rect			(-124 + 10) (-75 - 2) 0 0 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_BOTTOM
 	fullScreen		0
 	visible when 	( !ui_active() && dvarint( ui_hud_hardcore ) == 0 && dvarBool( miniscoreboardhide ) == 0 && dvarBool( hud_missionFailed ) == 0 && dvarint( arcademode ) == 1 || dvarint( zombiemode ) == 1 && dvarBool( cl_paused ) == 0 );
 	
 	itemDef
 	{
-		name			"playerscores"
-		rect			0 0 80 0 // changed from 100 to 85, less stretched out like console
+		name			"playerscores_console"
+		rect			0 0 90 0 // changed from 100 to 85, less stretched out like console
 		ownerdraw		CG_COMPETITIVE_MODE_SCORES
 		visible			when ( dvarInt( "cg_drawGamepadHUD" ) == 1)
 	}		
-		itemDef
+	itemDef
 	{
-		name			"playerscores_console"
+		name			"playerscores"
 		rect			0 0 90 0 // changed from 100 to 85, less stretched out like console
 		ownerdraw		CG_COMPETITIVE_MODE_SCORES
 		visible			when ( dvarInt( "cg_drawGamepadHUD" ) != 1)
@@ -1202,7 +1279,7 @@ menuDef
         {
 			ownerdraw		CG_PLAYER_WEAPON_BACKGROUND
 			background		"hud_dpad"
-            rect			(-DPAD_ICON_SPACING - DPAD_BASE_SIZE + 41) (DPAD_ICON_Y + DPAD_HEIGHT_CONSOLE) DPAD_BASE_SIZE DPAD_BASE_SIZE
+            rect			(-DPAD_ICON_SPACING - DPAD_BASE_SIZE + 43) (DPAD_ICON_Y + DPAD_HEIGHT_CONSOLE) DPAD_BASE_SIZE DPAD_BASE_SIZE
             forecolor		1 1 1 DPAD_ICON_ALPHA
 			visible 		when( dvarInt( "cg_drawGamepadHUD" ) == 1 && dvarInt( "cg_drawDpadLogos" ) == 1 && dvarInt( "miniscoreboardhide" ) != 1 )
 			decoration
@@ -1210,7 +1287,7 @@ menuDef
 		itemDef // XBOX arrow
 		{
 			name			"xbox_left"
-			rect			(-DPAD_ICON_SPACING - DPAD_BASE_SIZE_HALF + 27) (DPAD_ICON_Y + 2.2 + DPAD_HEIGHT_CONSOLE) 24 24
+			rect			(-DPAD_ICON_SPACING - DPAD_BASE_SIZE_HALF + 29) (DPAD_ICON_Y + 2.2 + DPAD_HEIGHT_CONSOLE) 24 24
 			forecolor		1 1 1 DPAD_ICON_ALPHA
 			ownerdraw		CG_PLAYER_WEAPON_BACKGROUND
 			background		"hud_arrow_left"
@@ -1220,7 +1297,7 @@ menuDef
 		itemDef // XBOX arrow with no logo
 		{
 			name			"xbox_left"
-			rect			(-DPAD_ICON_SPACING - DPAD_BASE_SIZE_HALF + 17) (DPAD_ICON_Y + 2.2 + DPAD_HEIGHT_CONSOLE) 24 24
+			rect			(-DPAD_ICON_SPACING - DPAD_BASE_SIZE_HALF + 19) (DPAD_ICON_Y + 2.2 + DPAD_HEIGHT_CONSOLE) 24 24
 			forecolor		1 1 1 DPAD_ICON_ALPHA
 			ownerdraw		CG_PLAYER_WEAPON_BACKGROUND 
 			background		"hud_arrow_left"
@@ -1230,7 +1307,7 @@ menuDef
 		itemDef // XBOX image
         {
             name			"slot3_xbox"
-            rect			(-DPAD_ICON_SPACING - DPAD_BASE_SIZE + 41) (DPAD_ICON_Y + DPAD_HEIGHT_CONSOLE) DPAD_BASE_SIZE DPAD_BASE_SIZE
+            rect			(-DPAD_ICON_SPACING - DPAD_BASE_SIZE + 43) (DPAD_ICON_Y + DPAD_HEIGHT_CONSOLE) DPAD_BASE_SIZE DPAD_BASE_SIZE
 			ownerdraw		CG_PLAYER_ACTIONSLOT_3
 			forecolor		1 1 1 DPAD_ICON_ALPHA
 			visible 		when( dvarInt( "cg_drawGamepadHUD" ) == 1 )
@@ -1274,7 +1351,7 @@ menuDef
         {
 			ownerdraw		CG_PLAYER_WEAPON_BACKGROUND
 			background		"hud_dpad"
-            rect			(DPAD_ICON_SPACING - 41) (DPAD_ICON_Y + DPAD_HEIGHT_CONSOLE) DPAD_BASE_SIZE DPAD_BASE_SIZE
+            rect			(DPAD_ICON_SPACING - 43) (DPAD_ICON_Y + DPAD_HEIGHT_CONSOLE) DPAD_BASE_SIZE DPAD_BASE_SIZE
             forecolor		1 1 1 DPAD_ICON_ALPHA
 			visible 		when( dvarInt( "cg_drawGamepadHUD" ) == 1 && dvarInt( "cg_drawDpadLogos" ) == 1 && dvarInt( "miniscoreboardhide" ) != 1 )
 			decoration
@@ -1282,7 +1359,7 @@ menuDef
 		itemDef // XBOX arrow
 		{
 			name			"xbox_right"
-			rect			(DPAD_ICON_SPACING + DPAD_BASE_SIZE_HALF - 51) (DPAD_ICON_Y + 2.2 + DPAD_HEIGHT_CONSOLE)  24 24
+			rect			(DPAD_ICON_SPACING + DPAD_BASE_SIZE_HALF - 53) (DPAD_ICON_Y + 2.2 + DPAD_HEIGHT_CONSOLE)  24 24
 			forecolor		1 1 1 DPAD_ICON_ALPHA
 			ownerdraw		CG_PLAYER_WEAPON_BACKGROUND 
 			background		"hud_arrow_right"
@@ -1292,7 +1369,7 @@ menuDef
 		itemDef // XBOX arrow with no logo
 		{
 			name			"xbox_right"
-			rect			(DPAD_ICON_SPACING + DPAD_BASE_SIZE_HALF - 38) (DPAD_ICON_Y + 2.2 + DPAD_HEIGHT_CONSOLE)  24 24
+			rect			(DPAD_ICON_SPACING + DPAD_BASE_SIZE_HALF - 40) (DPAD_ICON_Y + 2.2 + DPAD_HEIGHT_CONSOLE)  24 24
 			forecolor		1 1 1 DPAD_ICON_ALPHA
 			ownerdraw		CG_PLAYER_WEAPON_BACKGROUND 
 			background		"hud_arrow_right"
@@ -1302,7 +1379,7 @@ menuDef
 		itemDef // XBOX image
         {
             name			"slot4_xbox"
-            rect			(DPAD_ICON_SPACING - 41) (DPAD_ICON_Y + DPAD_HEIGHT_CONSOLE) DPAD_BASE_SIZE DPAD_BASE_SIZE
+            rect			(DPAD_ICON_SPACING - 43) (DPAD_ICON_Y + DPAD_HEIGHT_CONSOLE) DPAD_BASE_SIZE DPAD_BASE_SIZE
 			ownerdraw		CG_PLAYER_ACTIONSLOT_4
 			forecolor		1 1 1 DPAD_ICON_ALPHA
 			visible 		when( dvarInt( "cg_drawGamepadHUD" ) == 1 )
@@ -1533,9 +1610,34 @@ menuDef
 			textscale		TEXTSIZE_SMALL
 			textstyle		ITEM_TEXTSTYLE_SHADOWED
 			ownerdraw		CG_HOLD_BREATH_HINT
-			visible			1
+//			visible			when( dvarInt( "cg_drawGamepadHUD" ) != 1 )
+			visible 1
 			decoration
 		}
+/*		itemDef 
+		{
+			name			"chRect_console"
+			rect			0 0 0 0
+			textfont		UI_FONT_NORMAL
+			textscale		TEXTSIZE_SMALL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textalign		ITEM_ALIGN_CENTER
+			text		"Click and hold LS(up) to steady"
+			visible			when( dvarInt("ui_gamepad_stick") != 1 && dvarInt( "cg_drawGamepadHUD" ) == 1 && scoped() )
+			decoration
+		}
+		itemDef 
+		{
+			name			"chRect_console"
+			rect			0 0 0 0
+			textfont		UI_FONT_NORMAL
+			textscale		TEXTSIZE_SMALL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textalign		ITEM_ALIGN_CENTER
+			text		"Click and hold LS(down) to steady"
+			visible			when( dvarInt("ui_gamepad_stick") == 1 && dvarInt( "cg_drawGamepadHUD" ) == 1 && scoped() )
+			decoration
+		}*/
 	}
 	
 	// Saving Icon

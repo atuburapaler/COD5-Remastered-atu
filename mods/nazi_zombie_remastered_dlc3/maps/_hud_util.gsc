@@ -68,10 +68,14 @@ setPoint( point, relativePoint, xOffset, yOffset, moveTime )
 	self.alignX = "center";
 	self.alignY = "middle";
 
-	if ( isSubStr( point, "TOP" ) )
-		self.alignY = "top";
-	if ( isSubStr( point, "BOTTOM" ) )
-		self.alignY = "bottom";
+	if( !isDefined(self.revive) || self.revive != true )
+	{
+		if ( isSubStr( point, "TOP" ) )
+			self.alignY = "top";
+		if ( isSubStr( point, "BOTTOM" ) )
+			self.alignY = "bottom";	
+	}
+
 	if ( isSubStr( point, "LEFT" ) )
 		self.alignX = "left";
 	if ( isSubStr( point, "RIGHT" ) )
@@ -162,7 +166,14 @@ setPoint( point, relativePoint, xOffset, yOffset, moveTime )
 			break;
 	}
 	
-	self updateChildren();
+	if(isDefined(self.revive) && self.revive == true)
+	{
+		self updateChildren(true);
+	}
+	else
+	{
+		self updateChildren();
+	}
 }
 
 // CODER_MOD: Austin (8/4/08): port progress bar script from MP
@@ -407,14 +418,24 @@ createPrimaryProgressBar(revive)
 	}
 	else
 	{
-		primaryProgressBarHeight = 6; // for deploy/other egg steps--thicker
+		primaryProgressBarHeight = 6; // for deploy
 	}
 
 	bar = createBar( (1, 1, 1), level.primaryProgressBarWidth, primaryProgressBarHeight );
 	if ( level.splitScreen )
 		bar setPoint("TOP", undefined, level.primaryProgressBarX, level.primaryProgressBarY);
-	else
-		bar setPoint("CENTER", undefined, level.primaryProgressBarX, level.primaryProgressBarY);
+	else{
+
+		if(revive == true)
+		{
+			bar.revive = true;
+			bar setPoint("BOTTOM", undefined, level.primaryProgressBarX, level.primaryProgressBarY);
+		}
+		else
+		{
+			bar setPoint("CENTER", undefined, level.primaryProgressBarX, level.primaryProgressBarY);	
+		}
+	}
 
 	return bar;
 }
@@ -543,11 +564,17 @@ setSize( width, height )
 	self.height = height;
 }
 
-updateChildren()
+updateChildren(revive)
 {
 	for ( index = 0; index < self.children.size; index++ )
 	{
 		child = self.children[index];
+		
+		if(isDefined(revive) && revive == true)
+		{
+			child.revive = true;
+		}
+
 		child setPoint( child.point, child.relativePoint, child.xOffset, child.yOffset );
 	}
 }

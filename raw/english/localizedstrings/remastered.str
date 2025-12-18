@@ -146,6 +146,9 @@ LANG_ENGLISH        "Difficulty"
 REFERENCE           HUD
 LANG_ENGLISH        "HUD"
 
+REFERENCE           HUD_SCALE
+LANG_ENGLISH        "HUD Scale"
+
 REFERENCE           CROSSHAIR
 LANG_ENGLISH        "Crosshair"
 
@@ -161,9 +164,6 @@ LANG_ENGLISH        "Limit FPS"
 REFERENCE           FPS_HUD
 LANG_ENGLISH        "Display FPS"
 
-REFERENCE           CTRL_INVERSION
-LANG_ENGLISH        "Inversion"
-
 REFERENCE           CTRL_FLIP
 LANG_ENGLISH        "Trigger Buttons"
 
@@ -172,24 +172,6 @@ LANG_ENGLISH        "Flipped"
 
 REFERENCE           MODIFIED_DEFAULT
 LANG_ENGLISH        "Modified (Default)"
-
-REFERENCE           CLASSIC
-LANG_ENGLISH        "Classic"
-
-REFERENCE           DISABLED
-LANG_ENGLISH        "Disabled"
-
-REFERENCE           ENABLED
-LANG_ENGLISH        "Enabled"
-
-REFERENCE           HIGH
-LANG_ENGLISH        "High"
-
-REFERENCE           MEDIUM
-LANG_ENGLISH        "Medium"
-
-REFERENCE           NORMAL
-LANG_ENGLISH        "Normal"
 
 REFERENCE           LOW
 LANG_ENGLISH        "1 (Low)"
@@ -215,12 +197,6 @@ LANG_ENGLISH        "LOD Range (Rigid)"
 REFERENCE           LOD_SKINNED
 LANG_ENGLISH        "LOD Range (Skinned)"
 
-REFERENCE           DEFAULT
-LANG_ENGLISH        "Default"
-
-REFERENCE           MODIFIED
-LANG_ENGLISH        "Modified"
-
 REFERENCE           CONTROLLER_SUPPORT
 LANG_ENGLISH        "Gamepad"
 
@@ -231,7 +207,7 @@ REFERENCE           CONTROLLER_V1
 LANG_ENGLISH        "Enable to bind gamepad controls and use console style HUD."
 
 REFERENCE           CONTROLLER_V2
-LANG_ENGLISH        "Note: Only Xbox controllers have native support. \nLimited support on menus."
+LANG_ENGLISH        "Only Xbox controllers have native support. \nLimited support on menus."
 
 REFERENCE           HINT_GAMETYPE
 LANG_ENGLISH        "Adjusts the flow of zombie waves. Classic mode reverts to the 24 per-round limit in solo and removes Carpenter power-ups."
@@ -250,9 +226,6 @@ LANG_ENGLISH        "Adjusts the zombie grabbing effect. Classic mode reverts to
 
 REFERENCE           HINT_SPRINTERS
 LANG_ENGLISH        "Adjusts the intensity of zombie waves. Classic mode removes newly added super-sprinter variations for an experience closer to the original release."
-
-REFERENCE           ICON_TEAM_INDICATOR
-LANG_ENGLISH        "None"
 
 REFERENCE           CLEARANCE
 LANG_ENGLISH        "Clearance Code:"
@@ -527,9 +500,6 @@ LANG_ENGLISH        "Other Equipment"
 REFERENCE           EXPLOSIVES
 LANG_ENGLISH        "Explosives"
 
-REFERENCE           USERELOAD
-LANG_ENGLISH        "Use/Reload"
-
 REFERENCE           SCOREBOARD
 LANG_ENGLISH        "Scoreboard"
 
@@ -608,11 +578,32 @@ LANG_ENGLISH		"^7 to enter first person view"
 REFERENCE           HINT_ENTER_THIRD
 LANG_ENGLISH		"^7 to enter third person view"
 
+REFERENCE           SPEC_MENU
+LANG_ENGLISH		"Menu"
+
+REFERENCE           SPEC_NEXT
+LANG_ENGLISH		"Next"
+
+REFERENCE           SPEC_PREV
+LANG_ENGLISH		"Prev"
+
+REFERENCE           SPEC_FIRST
+LANG_ENGLISH		"First Person View"
+
+REFERENCE           SPEC_THIRD
+LANG_ENGLISH		"Third Person View"
+
+REFERENCE           SPEC_SCORE
+LANG_ENGLISH		"Score"
+
 REFERENCE           ANISO
 LANG_ENGLISH		"Max Anisotropy"
 
 REFERENCE           AIM_ASS_DESC
-LANG_ENGLISH		"This setting helps automatically guide your sights onto targets within range and is designed to be used with a controller and not mouse. Are you sure you want to proceed?"
+LANG_ENGLISH		"Aim assist is only active when gamepad input is detected."
+
+REFERENCE           AIM_ASS_DESC_T4M
+LANG_ENGLISH		"Aim assist is only active when gamepad input is detected.\nNote: You must upgrade to T4Me r49+ for ADS aim assist."
 
 
 ENDMARKER

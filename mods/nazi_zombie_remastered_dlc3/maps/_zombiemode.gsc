@@ -15,8 +15,8 @@ main(init_zombie_spawner_name)
 	PrecacheItem( "fraggrenade" );
 	PrecacheItem( "colt" );
 
-	game[ "menu_clientdvar" ] = "menu_clientdvar";   // these two lines at beginning of gsc
-	precacheMenu( game[ "menu_clientdvar" ] );
+	//game[ "menu_clientdvar" ] = "menu_clientdvar";   // these two lines at beginning of gsc
+	//precacheMenu( game[ "menu_clientdvar" ] );
 
 	init_strings();
 	init_levelvars();
@@ -50,7 +50,7 @@ main(init_zombie_spawner_name)
 	// load map defaults
 	maps\_load::main();
 
-	level.remove_ee_ef = 0;
+	//level.remove_ee_ef = 0;
 	level.hudelem_count = 0;
 	level.solo_reviving_failsafe = 0;
 
@@ -186,6 +186,7 @@ main(init_zombie_spawner_name)
 	level.startInvulnerableTime = GetDvarInt( "player_deathInvulnerableTime" );
 
 	// Do a SaveGame, so we can restart properly when we die
+	SaveGame( "zombie_start", &"AUTOSAVE_LEVELSTART", "", true );
 
 
 
@@ -211,6 +212,9 @@ track_ammo_count()
 {
 	self endon("disconnect");
 	self endon("death");
+
+	self waittill( "spawned_player" ); 
+
 	if(!IsDefined (self.player_ammo_low))	
 	{
 		self.player_ammo_low = false;
@@ -1061,6 +1065,8 @@ watchGrenadeThrow()
 	self endon( "disconnect" ); 
 	self endon( "death" );
 
+	self waittill( "spawned_player" ); 
+
 	while(1)
 	{
 		self waittill("grenade_fire", grenade);
@@ -1088,7 +1094,7 @@ onPlayerConnect()
 		player thread player_revive_monitor();
 		player thread watchGrenadeThrow();
 		
-		player thread maps\walking_anim::main();
+		player thread maps\_walking_anim::player_init();
 
 		player thread track_ammo_count();
 
@@ -1097,7 +1103,7 @@ onPlayerConnect()
 
 		player thread maps\_zombiemode_molotov::trackMolotov(); 
 
-		player thread getAimAssistDvar();
+		//player thread getAimAssistDvar();
 
 		player.score = level.zombie_vars["zombie_score_start"]; 
 		player.score_total = player.score; 
@@ -3056,7 +3062,7 @@ player_damage_override( eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, 
 	if( count == players.size )
 	{
 		level notify( "end_game" );
-		level.remove_ee_ef = 1;
+		//level.remove_ee_ef = 1;
 	}
 	else
 	{

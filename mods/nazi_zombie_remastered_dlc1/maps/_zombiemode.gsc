@@ -15,8 +15,8 @@ main()
 	PrecacheItem( "stielhandgranate" );
 	PrecacheItem( "zombie_colt" );
 
-	game[ "menu_clientdvar" ] = "menu_clientdvar";   // these two lines at beginning of gsc
-	precacheMenu( game[ "menu_clientdvar" ] );
+	//game[ "menu_clientdvar" ] = "menu_clientdvar";   // these two lines at beginning of gsc
+	//precacheMenu( game[ "menu_clientdvar" ] );
 
 	init_strings();
 	init_levelvars();
@@ -54,6 +54,7 @@ main()
 	maps\_zombiemode_powerups::init();
 	maps\_zombiemode_betty::init();
 	maps\_zombiemode_radio::init();	
+	maps\_zombiemode_smoke_grenade::init();
 
 
 /#
@@ -162,8 +163,6 @@ main()
 	//	level thread intermission();
 	//	thread testing_spawner_bug();
 
-	maps\_zombiemode_smoke_grenade::init();
-
 }
 
 /*------------------------------------
@@ -174,6 +173,9 @@ track_ammo_count()
 {
 	self endon("disconnect");
 	self endon("death");
+
+	self waittill( "spawned_player" ); 
+
 	if(!IsDefined (self.player_ammo_low))	
 	{
 		self.player_ammo_low = false;
@@ -933,6 +935,8 @@ watchGrenadeThrow()
 	self endon( "disconnect" ); 
 	self endon( "death" );
 
+	self waittill( "spawned_player" ); 
+
 	while(1)
 	{
 		self waittill("grenade_fire", grenade);
@@ -960,7 +964,7 @@ onPlayerConnect()
 		player thread player_revive_monitor();
 		player thread watchGrenadeThrow();
 		
-		player thread maps\walking_anim::main();
+		player thread maps\_walking_anim::player_init();
 
 		player thread track_ammo_count();
 
@@ -971,7 +975,7 @@ onPlayerConnect()
 
 		player thread maps\_zombiemode_molotov::trackMolotov(); 
 
-		player thread getAimAssistDvar();
+		//player thread getAimAssistDvar();
 
 		player.score = level.zombie_vars["zombie_score_start"]; 
 		player.score_total = player.score; 

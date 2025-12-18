@@ -3097,6 +3097,8 @@ phase_three_complete()
 
 give_all_perks_forever()
 {
+	level endon("fake_death");
+
 	self endon("disconnect");
 	self endon("death");
 	
@@ -3155,14 +3157,14 @@ give_all_perks_forever()
 		//for(i = 3; i > level._sq_perk_array.size; i --)
 		//{
 		//no for loop, yes this is more messy but now they're in rainbow perk order :)
-			if ( level.remove_ee_ef == 1)
+/*			if ( level.remove_ee_ef == 1)
 			{
 				self.perk_hud[ "specialty_armorvest" ] destroy_hud();
 				self.perk_hud[ "specialty_rof" ] destroy_hud();
 				self.perk_hud[ "specialty_fastreload" ] destroy_hud();
 				self.perk_hud[ "specialty_quickrevive" ] destroy_hud();
 				break;
-			}
+			}*/
 			if(!self HasPerk(level._sq_perk_array[2]) && is_player_valid(self))
 			{
 				self thread maps\_zombiemode_perks::give_perk(level._sq_perk_array[2]);

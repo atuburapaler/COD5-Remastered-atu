@@ -167,8 +167,6 @@ sound,achievement_sound,,all_mp
 material,ui_leaderboard
 menufile,ui/pc_joinchoosegamemode.menu
 menufile,ui/pregame.menu
-menufile,ui/error.menu
-menufile,ui/scriptmenus/menu_clientdvar.menu
 menufile,ui/briefing.menu
 localize,zombie
 rawfile,vision/flare.vision
@@ -189,3 +187,4 @@ rawfile,buttons_default_alt_flipped.cfg
 rawfile,buttons_experimental_alt_flipped.cfg
 rawfile,buttons_lefty_alt_flipped.cfg
 rawfile,buttons_nomad_flipped.cfg
+material,spec_xenon

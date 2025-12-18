@@ -141,6 +141,9 @@
 			execondvarintvalue cg_drawGamepadHUD 0 "set cg_scoreboardPingGraph 0"; 
 			execondvarintvalue cg_drawGamepadHUD 1 "set cg_overheadNamesFont 3"; 
 			execondvarintvalue cg_drawGamepadHUD 0 "set cg_overheadNamesFont 6"; 
+			execondvarintvalue cg_drawGamepadHUD 0 "set playerSpectatingHide 0"; 
+			execondvarintvalue cg_drawGamepadHUD 1 "set playerSpectatingHide 1"; 
+
 			execOnDvarFloatValue ui_smallfont 0.25 "set ui_smallfont 0"; 
 			setdvar cg_scoreboardPingWidth "0.025";
 
@@ -436,6 +439,7 @@
 
 			execnow "ui_cinematic front_end_sp 3"
 			setdvar ui_showOnlineOfflineButton "1";
+			
 			execondvarintvalue dvar_init 0 "exec init_remastered"; 
 			execondvarintvalue cg_drawGamepadHUD 1 "set cg_scoreboardFont 3"; 
 			execondvarintvalue cg_drawGamepadHUD 0 "set cg_scoreboardFont 0"; 
@@ -447,6 +451,9 @@
 			execondvarintvalue cg_drawGamepadHUD 0 "set cg_scoreboardPingGraph 0"; 
 			execondvarintvalue cg_drawGamepadHUD 1 "set cg_overheadNamesFont 3"; 
 			execondvarintvalue cg_drawGamepadHUD 0 "set cg_overheadNamesFont 6"; 
+			execondvarintvalue cg_drawGamepadHUD 0 "set playerSpectatingHide 0"; 
+			execondvarintvalue cg_drawGamepadHUD 1 "set playerSpectatingHide 1"; 
+
 			execOnDvarFloatValue ui_smallfont 0.25 "set ui_smallfont 0"; 
 			setdvar cg_scoreboardPingWidth "0.025";
 

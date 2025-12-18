@@ -101,6 +101,8 @@ fov_fix()
 dvar_update() // if we happen to change the dummy setting VARS on the main menu and load in-game, the actual dvar will not reflect the dummy, which in these cases we hard-code in the dvar to update
 {
 	self endon("disconnect");
+	
+	wait(0.1);
 
 	if(GetDvarInt("cg_fov_settings") < 65 ) // failsafe
 	{
@@ -133,6 +135,10 @@ dvar_update() // if we happen to change the dummy setting VARS on the main menu 
 */
 	for(;;)
 	{
+		aim_assist = GetDvarInt("gpad_autoaim_enabled");
+		SetClientDvar("aim_lockon_enabled", aim_assist);
+		SetClientDvar("aim_slowdown_enabled", aim_assist);
+
 		if(GetDvarInt("r_fog_settings") == 0 )
 		{
 			SetClientDvar("r_fog", 0);

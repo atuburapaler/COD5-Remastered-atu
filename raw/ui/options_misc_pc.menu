@@ -76,7 +76,7 @@
 		CHOICE_SECTION_TITLE( 21, "@MENU_INTERACT_CAP" )
 
 		CHOICE_BIND( 22, "@MENU_USE", "+activate", ; )
-		CHOICE_BIND( 23, "@REMASTERED_USERELOAD", "+usereload", ; )
+		CHOICE_BIND( 23, "@MENU_USE_RELOAD", "+usereload", ; )
 
 	#ifdef PC
 		CHOICE_BIND( 24, "@REMASTERED_ITEM", "+actionslot 1", ; )

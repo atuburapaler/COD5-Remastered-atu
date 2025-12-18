@@ -84,6 +84,7 @@ player_dvar_init()
 	{
 		players[i] thread dvar_update();
 		players[i] thread pause_check();
+		//players[i] thread ui_anim_timer();
 
 		//players[i] thread fov_fix(i);
 
@@ -107,9 +108,27 @@ fov_fix()
 	}
 }
 
+ui_anim_timer()
+{
+    for(;;)
+    {
+        current = getDvarInt("ui_gamepad_stick");
+
+        if ( current == 0 )
+            SetClientDvar( "ui_gamepad_stick", 1 );
+        else
+            SetClientDvar( "ui_gamepad_stick", 0 );
+
+        realwait(1);
+
+    }
+}
+
 dvar_update() // if we happen to change the dummy setting VARS on the main menu and load in-game, the actual dvar will not reflect the dummy, which in these cases we hard-code in the dvar to update
 {
 	self endon("disconnect");
+
+	wait(0.1);
 
 	if(GetDvarInt("cg_fov_settings") < 65 ) // failsafe
 	{
@@ -142,6 +161,10 @@ dvar_update() // if we happen to change the dummy setting VARS on the main menu 
 
 	for(;;)
 	{
+		aim_assist = GetDvarInt("gpad_autoaim_enabled");
+		SetClientDvar("aim_lockon_enabled", aim_assist);
+		SetClientDvar("aim_slowdown_enabled", aim_assist);
+
 		if(GetDvarInt("r_fog_settings") == 0 )
 		{
 			SetClientDvar("r_fog", 0);

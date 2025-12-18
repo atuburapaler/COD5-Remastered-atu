@@ -424,7 +424,7 @@ score_highlight( score, value )
 	self endon( "disconnect" ); 
 
 	// Location from hud.menu
-	score_x = -104;
+	score_x = -114;
 	score_y = -77;
 
 	x = score_x;
